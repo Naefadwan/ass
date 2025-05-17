@@ -1,0 +1,2696 @@
+2025-05-08 15:26:31.252 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "axios/1.9.0"
+}
+2025-05-08 15:26:31.255 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test_1746707191225@example.com",
+  "username": "testuser_1746707191225",
+  "role": "patient"
+}
+2025-05-08 15:26:31.262 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:31.264 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:31.267 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:31.272 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:31.698 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] User created successfully with ID: 581c76c5-6e9e-453a-aa12-fecccae07c2b
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:31.700 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:31.704 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:31.710 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:31.717 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:31.719 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Sending welcome email to: test_1746707191225@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:32.074 [[31merror[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:26:32.077 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:42.086 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Sending welcome email to: test_1746707191225@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:42.108 [[31merror[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:26:42.110 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:52.112 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Sending welcome email to: test_1746707191225@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:26:52.140 [[31merror[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:26:52.142 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:27:02.147 [[32minfo[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Sending welcome email to: test_1746707191225@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:27:02.172 [[31merror[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:27:02.175 [[31merror[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:56.616 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:51:56.619 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708716606@example.com",
+  "username": "testuser1746708716606",
+  "role": "patient"
+}
+2025-05-08 15:51:56.777 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:56.778 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:56.780 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:56.786 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.131 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] User created successfully with ID: afe1fcef-549b-4e94-8fe5-e8da0cffdb76
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.131 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.135 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.137 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.141 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.143 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Sending welcome email to: test1746708716606@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.187 [[31merror[39m] [REGISTER:reg_1746708716615_3zebl992] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:51:57.191 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.832 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:51:57.832 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708717825@example.com",
+  "username": "testuser1746708717825",
+  "role": "patient"
+}
+2025-05-08 15:51:57.835 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.836 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.838 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.842 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:58.155 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] User created successfully with ID: b0879e9a-3487-462e-a6ff-0492ffd88bf0
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:58.155 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:58.158 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:58.159 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:58.161 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:58.161 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Sending welcome email to: test1746708717825@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:58.181 [[31merror[39m] [REGISTER:reg_1746708717831_9nktzi7q] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:51:58.184 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:02.569 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:52:02.569 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708722543@example.com",
+  "username": "testuser1746708722543",
+  "role": "patient"
+}
+2025-05-08 15:52:02.574 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:02.575 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:02.578 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:02.584 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.104 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] User created successfully with ID: dc557ddd-44cf-4acc-8a2d-c7cd026502b4
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.104 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.106 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.107 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.111 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.112 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Sending welcome email to: test1746708722543@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.145 [[31merror[39m] [REGISTER:reg_1746708722569_oypkgany] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:03.147 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.214 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:52:03.214 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708723208@example.com",
+  "username": "testuser1746708723208",
+  "role": "patient"
+}
+2025-05-08 15:52:03.218 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.219 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.220 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.223 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.714 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] User created successfully with ID: fcd9a579-f80e-4bc9-97bf-545e922339ae
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.715 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.716 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.717 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.718 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.719 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Sending welcome email to: test1746708723208@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:03.735 [[31merror[39m] [REGISTER:reg_1746708723214_amprrx8v] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:03.737 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:07.200 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Sending welcome email to: test1746708716606@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:07.224 [[31merror[39m] [REGISTER:reg_1746708716615_3zebl992] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:07.226 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:07.834 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:52:07.834 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708727813@example.com",
+  "username": "testuser1746708727813",
+  "role": "patient"
+}
+2025-05-08 15:52:07.837 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:07.838 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:07.839 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:07.843 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.156 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] User created successfully with ID: 436f5891-8fdd-4ea7-9190-a35f73ee73bd
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.156 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.158 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.159 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.161 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.161 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Sending welcome email to: test1746708727813@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.181 [[31merror[39m] [REGISTER:reg_1746708727834_at66075p] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:08.183 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.192 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Sending welcome email to: test1746708717825@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.213 [[31merror[39m] [REGISTER:reg_1746708717831_9nktzi7q] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:08.215 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.411 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:52:08.411 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708728393@example.com",
+  "username": "testuser1746708728393",
+  "role": "patient"
+}
+2025-05-08 15:52:08.414 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.415 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.416 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.421 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.709 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] User created successfully with ID: e7c1a6a5-b776-4702-b709-eb706b23c94e
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.710 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.712 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.713 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.715 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.715 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Sending welcome email to: test1746708728393@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:08.733 [[31merror[39m] [REGISTER:reg_1746708728410_20phaau7] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:08.735 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.018 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:52:13.018 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708733011@example.com",
+  "username": "testuser1746708733011",
+  "role": "patient"
+}
+2025-05-08 15:52:13.021 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.022 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.024 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.027 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.230 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Sending welcome email to: test1746708722543@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.349 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] User created successfully with ID: ccc843b9-6d92-4b1a-b3d3-230623c9e9cc
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.349 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.351 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.352 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.354 [[31merror[39m] [REGISTER:reg_1746708722569_oypkgany] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:13.356 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.357 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Sending welcome email to: test1746708733011@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.367 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.378 [[31merror[39m] [REGISTER:reg_1746708733017_qq71grtw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:13.381 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.744 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Sending welcome email to: test1746708723208@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:13.766 [[31merror[39m] [REGISTER:reg_1746708723214_amprrx8v] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:13.772 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:17.232 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Sending welcome email to: test1746708716606@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:17.250 [[31merror[39m] [REGISTER:reg_1746708716615_3zebl992] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:17.253 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:17.617 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:52:17.618 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708737601@example.com",
+  "username": "testuser1746708737601",
+  "role": "patient"
+}
+2025-05-08 15:52:17.664 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:17.666 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:17.667 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:17.671 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.128 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] User created successfully with ID: 1420abc6-e1f3-49fc-8995-707fdd10562b
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.128 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.131 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.132 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.134 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.134 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Sending welcome email to: test1746708737601@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.153 [[31merror[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:18.155 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.194 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Sending welcome email to: test1746708727813@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.213 [[31merror[39m] [REGISTER:reg_1746708727834_at66075p] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:18.215 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.216 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Sending welcome email to: test1746708717825@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.240 [[31merror[39m] [REGISTER:reg_1746708717831_9nktzi7q] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:18.241 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.748 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Sending welcome email to: test1746708728393@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:18.939 [[31merror[39m] [REGISTER:reg_1746708728410_20phaau7] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:18.989 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:52:18.990 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708738874@example.com",
+  "username": "testuser1746708738874",
+  "role": "patient"
+}
+2025-05-08 15:52:18.993 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:19.000 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:19.002 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:19.006 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:19.019 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:19.418 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] User created successfully with ID: 1677dde9-5abe-4b4a-8530-f4a9181aad9c
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:19.419 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:19.420 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:19.422 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:19.424 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:19.424 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Sending welcome email to: test1746708738874@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:19.451 [[31merror[39m] [REGISTER:reg_1746708738989_epq11p20] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:19.453 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.276 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:52:23.276 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708743257@example.com",
+  "username": "testuser1746708743257",
+  "role": "patient"
+}
+2025-05-08 15:52:23.280 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.281 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.284 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.288 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.390 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Sending welcome email to: test1746708722543@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.390 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Sending welcome email to: test1746708733011@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.618 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] User created successfully with ID: 8b64f763-3f1c-47a4-8a9a-c4ca7a735ccc
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.619 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.620 [[31merror[39m] [REGISTER:reg_1746708722569_oypkgany] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:23.622 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.624 [[31merror[39m] [REGISTER:reg_1746708733017_qq71grtw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:23.632 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.633 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.636 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.638 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.639 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Sending welcome email to: test1746708743257@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.662 [[31merror[39m] [REGISTER:reg_1746708743275_myu7cocp] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:23.664 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.779 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Sending welcome email to: test1746708723208@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:23.796 [[31merror[39m] [REGISTER:reg_1746708723214_amprrx8v] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:23.801 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:26.861 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:52:26.861 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708746853@example.com",
+  "username": "testuser1746708746853",
+  "role": "patient"
+}
+2025-05-08 15:52:26.898 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:26.899 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:26.900 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:26.903 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.199 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] User created successfully with ID: cb2bf337-64e8-4f2f-a9b5-6cedda779f28
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.200 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.202 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.203 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.205 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.206 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Sending welcome email to: test1746708746853@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.235 [[31merror[39m] [REGISTER:reg_1746708746861_ozvi2gme] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:27.237 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.261 [[32minfo[39m] [REGISTER:reg_1746708716615_3zebl992] Sending welcome email to: test1746708716606@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.284 [[31merror[39m] [REGISTER:reg_1746708716615_3zebl992] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:27.286 [[31merror[39m] [REGISTER:reg_1746708716615_3zebl992] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.926 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:52:27.926 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708747918@example.com",
+  "username": "testuser1746708747918",
+  "role": "patient"
+}
+2025-05-08 15:52:27.930 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.931 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.936 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:27.940 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.248 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Sending welcome email to: test1746708737601@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.255 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Sending welcome email to: test1746708727813@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.258 [[32minfo[39m] [REGISTER:reg_1746708717831_9nktzi7q] Sending welcome email to: test1746708717825@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.424 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] User created successfully with ID: 48d8ff2f-4d63-409a-9312-7b0f8af0c397
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.424 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.427 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.429 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.430 [[31merror[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:28.431 [[31merror[39m] [REGISTER:reg_1746708717831_9nktzi7q] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:28.433 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.433 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Sending welcome email to: test1746708747918@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.434 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.444 [[31merror[39m] [REGISTER:reg_1746708717831_9nktzi7q] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.445 [[31merror[39m] [REGISTER:reg_1746708727834_at66075p] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:28.447 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.460 [[31merror[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:28.462 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:29.004 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Sending welcome email to: test1746708728393@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:29.023 [[31merror[39m] [REGISTER:reg_1746708728410_20phaau7] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:29.025 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:29.469 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Sending welcome email to: test1746708738874@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:29.487 [[31merror[39m] [REGISTER:reg_1746708738989_epq11p20] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:29.489 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:32.517 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 15:52:32.517 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test1746708752509@example.com",
+  "username": "testuser1746708752509",
+  "role": "patient"
+}
+2025-05-08 15:52:32.522 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:32.523 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:32.524 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:32.527 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:32.932 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] User created successfully with ID: 7f57d0a2-415a-4c82-9b4d-12c1e9a40abf
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:32.932 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:32.935 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:32.937 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:32.939 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:32.939 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Sending welcome email to: test1746708752509@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:32.966 [[31merror[39m] [REGISTER:reg_1746708752517_h5wir1r2] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:32.968 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:33.644 [[32minfo[39m] [REGISTER:reg_1746708722569_oypkgany] Sending welcome email to: test1746708722543@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:33.645 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Sending welcome email to: test1746708733011@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:33.666 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Sending welcome email to: test1746708743257@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:33.691 [[31merror[39m] [REGISTER:reg_1746708733017_qq71grtw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:33.693 [[31merror[39m] [REGISTER:reg_1746708722569_oypkgany] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:33.695 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:33.696 [[31merror[39m] [REGISTER:reg_1746708722569_oypkgany] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:33.699 [[31merror[39m] [REGISTER:reg_1746708743275_myu7cocp] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:33.701 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:33.816 [[32minfo[39m] [REGISTER:reg_1746708723214_amprrx8v] Sending welcome email to: test1746708723208@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:33.840 [[31merror[39m] [REGISTER:reg_1746708723214_amprrx8v] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:33.843 [[31merror[39m] [REGISTER:reg_1746708723214_amprrx8v] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:37.240 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Sending welcome email to: test1746708746853@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:37.264 [[31merror[39m] [REGISTER:reg_1746708746861_ozvi2gme] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:37.266 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:38.443 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Sending welcome email to: test1746708737601@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:38.452 [[32minfo[39m] [REGISTER:reg_1746708727834_at66075p] Sending welcome email to: test1746708727813@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:38.467 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Sending welcome email to: test1746708747918@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:38.492 [[31merror[39m] [REGISTER:reg_1746708727834_at66075p] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:38.495 [[31merror[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:38.500 [[31merror[39m] [REGISTER:reg_1746708727834_at66075p] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:38.570 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:38.596 [[31merror[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:38.619 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:39.031 [[32minfo[39m] [REGISTER:reg_1746708728410_20phaau7] Sending welcome email to: test1746708728393@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:39.055 [[31merror[39m] [REGISTER:reg_1746708728410_20phaau7] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:39.057 [[31merror[39m] [REGISTER:reg_1746708728410_20phaau7] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:39.498 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Sending welcome email to: test1746708738874@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:39.525 [[31merror[39m] [REGISTER:reg_1746708738989_epq11p20] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:39.527 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:42.979 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Sending welcome email to: test1746708752509@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:42.997 [[31merror[39m] [REGISTER:reg_1746708752517_h5wir1r2] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:43.000 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:43.702 [[32minfo[39m] [REGISTER:reg_1746708733017_qq71grtw] Sending welcome email to: test1746708733011@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:43.703 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Sending welcome email to: test1746708743257@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:43.735 [[31merror[39m] [REGISTER:reg_1746708733017_qq71grtw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:43.736 [[31merror[39m] [REGISTER:reg_1746708743275_myu7cocp] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:43.738 [[31merror[39m] [REGISTER:reg_1746708733017_qq71grtw] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:43.740 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:47.276 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Sending welcome email to: test1746708746853@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:47.315 [[31merror[39m] [REGISTER:reg_1746708746861_ozvi2gme] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:47.317 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:48.590 [[32minfo[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Sending welcome email to: test1746708737601@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:48.609 [[31merror[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:48.611 [[31merror[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:48.636 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Sending welcome email to: test1746708747918@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:48.656 [[31merror[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:48.658 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:49.539 [[32minfo[39m] [REGISTER:reg_1746708738989_epq11p20] Sending welcome email to: test1746708738874@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:49.564 [[31merror[39m] [REGISTER:reg_1746708738989_epq11p20] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:49.568 [[31merror[39m] [REGISTER:reg_1746708738989_epq11p20] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:53.014 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Sending welcome email to: test1746708752509@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:53.031 [[31merror[39m] [REGISTER:reg_1746708752517_h5wir1r2] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:53.034 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:53.745 [[32minfo[39m] [REGISTER:reg_1746708743275_myu7cocp] Sending welcome email to: test1746708743257@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:53.767 [[31merror[39m] [REGISTER:reg_1746708743275_myu7cocp] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:53.769 [[31merror[39m] [REGISTER:reg_1746708743275_myu7cocp] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:57.326 [[32minfo[39m] [REGISTER:reg_1746708746861_ozvi2gme] Sending welcome email to: test1746708746853@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:57.341 [[31merror[39m] [REGISTER:reg_1746708746861_ozvi2gme] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:57.344 [[31merror[39m] [REGISTER:reg_1746708746861_ozvi2gme] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:58.660 [[32minfo[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Sending welcome email to: test1746708747918@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:58.680 [[31merror[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:58.682 [[31merror[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:53:03.046 [[32minfo[39m] [REGISTER:reg_1746708752517_h5wir1r2] Sending welcome email to: test1746708752509@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:53:03.063 [[31merror[39m] [REGISTER:reg_1746708752517_h5wir1r2] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:53:03.065 [[31merror[39m] [REGISTER:reg_1746708752517_h5wir1r2] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.337 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-08 16:12:28.342 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "naef21@proton.me",
+  "username": "naef_1",
+  "role": "patient"
+}
+2025-05-08 16:12:28.469 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.471 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.475 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.480 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.827 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] User created successfully with ID: f134ecbc-e52f-4057-9621-c8883e7e04ba
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.827 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.831 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.834 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.838 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.839 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Sending welcome email to: naef21@proton.me (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.893 [[31merror[39m] [REGISTER:reg_1746709948336_htfmhmca] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 16:12:28.896 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:38.912 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Sending welcome email to: naef21@proton.me (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:38.933 [[31merror[39m] [REGISTER:reg_1746709948336_htfmhmca] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 16:12:38.935 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:48.939 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Sending welcome email to: naef21@proton.me (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:48.972 [[31merror[39m] [REGISTER:reg_1746709948336_htfmhmca] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 16:12:48.976 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:58.988 [[32minfo[39m] [REGISTER:reg_1746709948336_htfmhmca] Sending welcome email to: naef21@proton.me (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:59.045 [[31merror[39m] [REGISTER:reg_1746709948336_htfmhmca] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 16:12:59.049 [[31merror[39m] [REGISTER:reg_1746709948336_htfmhmca] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:36.496 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.2161"
+}
+2025-05-10 17:13:36.503 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "cascade_test_777074504@example.com",
+  "username": "cascade_test_777074504",
+  "role": "patient"
+}
+2025-05-10 17:13:36.634 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:36.636 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:36.639 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:36.644 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:36.960 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] User created successfully with ID: 6e964e0c-41b1-4cca-92b4-88bffccd29a1
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:36.960 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:36.964 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:36.967 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:36.970 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:36.971 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Sending welcome email to: cascade_test_777074504@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:37.279 [[31merror[39m] [REGISTER:reg_1746886416496_zxxpwa10] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-10 17:13:37.282 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:47.287 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Sending welcome email to: cascade_test_777074504@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:47.308 [[31merror[39m] [REGISTER:reg_1746886416496_zxxpwa10] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-10 17:13:47.310 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:57.319 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Sending welcome email to: cascade_test_777074504@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:57.340 [[31merror[39m] [REGISTER:reg_1746886416496_zxxpwa10] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-10 17:13:57.342 [[32minfo[39m] [REGISTER:reg_1746886416496_zxxpwa10] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:25.731 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.2161"
+}
+2025-05-10 17:14:25.734 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "cascade_test_450546913@example.com",
+  "username": "cascade_test_450546913",
+  "role": "patient"
+}
+2025-05-10 17:14:25.802 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:25.807 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:25.808 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:25.813 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:26.223 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] User created successfully with ID: 28692240-043e-4ad9-8ac0-daa397d689c2
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:26.223 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:26.227 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:26.230 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:26.337 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:26.339 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Sending welcome email to: cascade_test_450546913@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:26.550 [[31merror[39m] [REGISTER:reg_1746886465730_23318712] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-10 17:14:26.554 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:36.563 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Sending welcome email to: cascade_test_450546913@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:36.735 [[31merror[39m] [REGISTER:reg_1746886465730_23318712] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-10 17:14:36.742 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:46.757 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Sending welcome email to: cascade_test_450546913@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:46.783 [[31merror[39m] [REGISTER:reg_1746886465730_23318712] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-10 17:14:46.786 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:56.801 [[32minfo[39m] [REGISTER:reg_1746886465730_23318712] Sending welcome email to: cascade_test_450546913@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:14:56.828 [[31merror[39m] [REGISTER:reg_1746886465730_23318712] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-10 17:14:56.830 [[31merror[39m] [REGISTER:reg_1746886465730_23318712] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:41.474 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.2161"
+}
+2025-05-10 17:15:41.474 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "cascade_test_1460831131@example.com",
+  "username": "cascade_test_1460831131",
+  "role": "patient"
+}
+2025-05-10 17:15:41.570 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:41.574 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:41.575 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:41.580 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:41.935 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] User created successfully with ID: 7634ce3f-0e3e-424d-a0ff-c022f8d611b2
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:41.935 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:41.937 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:41.938 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:42.043 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:42.043 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Sending welcome email to: cascade_test_1460831131@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:42.286 [[31merror[39m] [REGISTER:reg_1746886541474_4hy9adj8] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-10 17:15:42.290 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:52.295 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Sending welcome email to: cascade_test_1460831131@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:52.317 [[31merror[39m] [REGISTER:reg_1746886541474_4hy9adj8] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-10 17:15:52.319 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:16:02.324 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Sending welcome email to: cascade_test_1460831131@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:16:02.358 [[31merror[39m] [REGISTER:reg_1746886541474_4hy9adj8] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-10 17:16:02.360 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:16:12.365 [[32minfo[39m] [REGISTER:reg_1746886541474_4hy9adj8] Sending welcome email to: cascade_test_1460831131@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:16:12.387 [[31merror[39m] [REGISTER:reg_1746886541474_4hy9adj8] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-10 17:16:12.389 [[31merror[39m] [REGISTER:reg_1746886541474_4hy9adj8] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:09.360 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-11 20:48:09.365 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test9339@example.com",
+  "username": "testuser9339",
+  "role": "patient"
+}
+2025-05-11 20:48:09.446 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:09.447 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:09.449 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:09.454 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:09.768 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] User created successfully with ID: 3b16bb71-495a-4105-8139-04bdf38c505a
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:09.768 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:09.771 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:09.773 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:09.777 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:09.778 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Sending welcome email to: test9339@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:10.098 [[31merror[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-11 20:48:10.100 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:20.103 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Sending welcome email to: test9339@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:20.134 [[31merror[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-11 20:48:20.140 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:30.145 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Sending welcome email to: test9339@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:30.168 [[31merror[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-11 20:48:30.170 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:40.180 [[32minfo[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Sending welcome email to: test9339@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:40.211 [[31merror[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-11 20:48:40.216 [[31merror[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:37.825 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-11 20:54:37.826 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "adwannaef@gmail.com",
+  "username": "Naef",
+  "role": "patient"
+}
+2025-05-11 20:54:37.911 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:37.913 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:37.917 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:37.921 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:38.599 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] User created successfully with ID: 13172fb5-9921-420e-b6c2-7c383b92578a
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:38.599 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:38.601 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:38.602 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:38.605 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:38.605 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Sending welcome email to: adwannaef@gmail.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:38.626 [[31merror[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-11 20:54:38.628 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:48.633 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Sending welcome email to: adwannaef@gmail.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:48.665 [[31merror[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-11 20:54:48.667 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:58.671 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Sending welcome email to: adwannaef@gmail.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:58.696 [[31merror[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-11 20:54:58.698 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:55:08.700 [[32minfo[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Sending welcome email to: adwannaef@gmail.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:55:08.738 [[31merror[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-11 20:55:08.742 [[31merror[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:13.838 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
+}
+2025-05-11 21:53:13.839 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test3820@example.com",
+  "username": "testuser3820",
+  "role": "patient"
+}
+2025-05-11 21:53:13.937 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:13.938 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:13.939 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:13.952 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:14.482 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] User created successfully with ID: 01a908a2-a5e4-46cd-bc89-72f932cc85f4
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:14.482 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:14.484 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:14.485 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:14.488 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:14.489 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Sending welcome email to: test3820@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:14.817 [[31merror[39m] [REGISTER:reg_1746989593837_aidwkypt] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-11 21:53:14.820 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:24.823 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Sending welcome email to: test3820@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:24.873 [[31merror[39m] [REGISTER:reg_1746989593837_aidwkypt] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-11 21:53:24.880 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:34.891 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Sending welcome email to: test3820@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:34.913 [[31merror[39m] [REGISTER:reg_1746989593837_aidwkypt] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-11 21:53:34.917 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:40.796 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
+}
+2025-05-11 21:53:40.799 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "test0782@example.com",
+  "username": "testuser0782",
+  "role": "patient"
+}
+2025-05-11 21:53:40.804 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:40.805 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:40.809 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:40.823 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:41.167 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] User created successfully with ID: 34883d19-a62a-487b-891e-430adb4f2bb4
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:41.167 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:41.168 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:41.169 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:41.172 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:41.175 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Sending welcome email to: test0782@example.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:41.204 [[31merror[39m] [REGISTER:reg_1746989620796_1u6v51k1] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-11 21:53:41.205 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:44.922 [[32minfo[39m] [REGISTER:reg_1746989593837_aidwkypt] Sending welcome email to: test3820@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:44.943 [[31merror[39m] [REGISTER:reg_1746989593837_aidwkypt] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-11 21:53:44.951 [[31merror[39m] [REGISTER:reg_1746989593837_aidwkypt] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:51.217 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Sending welcome email to: test0782@example.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:51.246 [[31merror[39m] [REGISTER:reg_1746989620796_1u6v51k1] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-11 21:53:51.248 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:54:01.259 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Sending welcome email to: test0782@example.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:54:01.301 [[31merror[39m] [REGISTER:reg_1746989620796_1u6v51k1] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-11 21:54:01.304 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:54:11.318 [[32minfo[39m] [REGISTER:reg_1746989620796_1u6v51k1] Sending welcome email to: test0782@example.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:54:11.338 [[31merror[39m] [REGISTER:reg_1746989620796_1u6v51k1] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-11 21:54:11.341 [[31merror[39m] [REGISTER:reg_1746989620796_1u6v51k1] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:18:16.643 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0"
+}
+2025-05-12 10:18:16.659 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "testt@gmail.com",
+  "username": "tixotic",
+  "role": "patient"
+}
+2025-05-12 10:18:16.807 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:18:16.809 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:18:16.815 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:18:16.820 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:18:17.185 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] User created successfully with ID: adaeb01f-d2ab-4717-b494-db4076bb37bf
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:18:17.186 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:18:17.193 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:18:17.196 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:18:17.203 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:18:17.204 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Sending welcome email to: testt@gmail.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:19:01.113 [[31merror[39m] [REGISTER:reg_1747034296634_qfk8apdw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-12 10:19:01.174 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:19:11.178 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Sending welcome email to: testt@gmail.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:19:11.213 [[31merror[39m] [REGISTER:reg_1747034296634_qfk8apdw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-12 10:19:11.218 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:19:21.223 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Sending welcome email to: testt@gmail.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:19:21.254 [[31merror[39m] [REGISTER:reg_1747034296634_qfk8apdw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-12 10:19:21.259 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:19:31.270 [[32minfo[39m] [REGISTER:reg_1747034296634_qfk8apdw] Sending welcome email to: testt@gmail.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:19:31.291 [[31merror[39m] [REGISTER:reg_1747034296634_qfk8apdw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-12 10:19:31.293 [[31merror[39m] [REGISTER:reg_1747034296634_qfk8apdw] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:47.802 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Incoming request received
+{
+  "service": "e-pharmacy-server",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0"
+}
+2025-05-16 16:17:47.808 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Processing registration
+{
+  "service": "e-pharmacy-server",
+  "email": "naef72919@gmail.com",
+  "username": "Islam",
+  "role": "patient"
+}
+2025-05-16 16:17:47.899 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Sending acknowledgment response
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:47.901 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Starting background registration process
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:47.904 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Transaction started
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:47.911 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Creating user record with role: patient
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:48.512 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] User created successfully with ID: 07a994de-2641-4c86-ae93-6ab8db0e21d5
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:48.513 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Generating verification token
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:48.515 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Committing transaction
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:48.517 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Transaction committed successfully
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:48.521 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Registration logged to audit log
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:48.522 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Sending welcome email to: naef72919@gmail.com (Attempt 1)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:48.853 [[31merror[39m] [REGISTER:reg_1747401467801_373br24k] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-16 16:17:48.855 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:58.858 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Sending welcome email to: naef72919@gmail.com (Attempt 2)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:58.883 [[31merror[39m] [REGISTER:reg_1747401467801_373br24k] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-16 16:17:58.886 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:18:08.891 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Sending welcome email to: naef72919@gmail.com (Attempt 3)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:18:08.921 [[31merror[39m] [REGISTER:reg_1747401467801_373br24k] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-16 16:18:08.923 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Scheduling email retry in 10000ms
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:18:18.930 [[32minfo[39m] [REGISTER:reg_1747401467801_373br24k] Sending welcome email to: naef72919@gmail.com (Attempt 4)
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:18:18.998 [[31merror[39m] [REGISTER:reg_1747401467801_373br24k] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-16 16:18:19.015 [[31merror[39m] [REGISTER:reg_1747401467801_373br24k] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
