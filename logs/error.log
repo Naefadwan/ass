@@ -1,0 +1,852 @@
+2025-05-08 15:26:32.074 [[31merror[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:26:42.108 [[31merror[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:26:52.140 [[31merror[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:27:02.172 [[31merror[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:27:02.175 [[31merror[39m] [REGISTER:reg_1746707191251_gkd6cn5o] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:51:57.187 [[31merror[39m] [REGISTER:reg_1746708716615_3zebl992] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:51:58.181 [[31merror[39m] [REGISTER:reg_1746708717831_9nktzi7q] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:03.145 [[31merror[39m] [REGISTER:reg_1746708722569_oypkgany] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:03.735 [[31merror[39m] [REGISTER:reg_1746708723214_amprrx8v] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:07.224 [[31merror[39m] [REGISTER:reg_1746708716615_3zebl992] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:08.181 [[31merror[39m] [REGISTER:reg_1746708727834_at66075p] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:08.213 [[31merror[39m] [REGISTER:reg_1746708717831_9nktzi7q] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:08.733 [[31merror[39m] [REGISTER:reg_1746708728410_20phaau7] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:13.354 [[31merror[39m] [REGISTER:reg_1746708722569_oypkgany] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:13.378 [[31merror[39m] [REGISTER:reg_1746708733017_qq71grtw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:13.766 [[31merror[39m] [REGISTER:reg_1746708723214_amprrx8v] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:17.250 [[31merror[39m] [REGISTER:reg_1746708716615_3zebl992] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:18.153 [[31merror[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:18.213 [[31merror[39m] [REGISTER:reg_1746708727834_at66075p] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:18.240 [[31merror[39m] [REGISTER:reg_1746708717831_9nktzi7q] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:18.939 [[31merror[39m] [REGISTER:reg_1746708728410_20phaau7] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:19.451 [[31merror[39m] [REGISTER:reg_1746708738989_epq11p20] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:23.620 [[31merror[39m] [REGISTER:reg_1746708722569_oypkgany] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:23.624 [[31merror[39m] [REGISTER:reg_1746708733017_qq71grtw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:23.662 [[31merror[39m] [REGISTER:reg_1746708743275_myu7cocp] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:23.796 [[31merror[39m] [REGISTER:reg_1746708723214_amprrx8v] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:27.235 [[31merror[39m] [REGISTER:reg_1746708746861_ozvi2gme] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:27.284 [[31merror[39m] [REGISTER:reg_1746708716615_3zebl992] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:27.286 [[31merror[39m] [REGISTER:reg_1746708716615_3zebl992] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.430 [[31merror[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:28.431 [[31merror[39m] [REGISTER:reg_1746708717831_9nktzi7q] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:28.444 [[31merror[39m] [REGISTER:reg_1746708717831_9nktzi7q] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:28.445 [[31merror[39m] [REGISTER:reg_1746708727834_at66075p] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:28.460 [[31merror[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:29.023 [[31merror[39m] [REGISTER:reg_1746708728410_20phaau7] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:29.487 [[31merror[39m] [REGISTER:reg_1746708738989_epq11p20] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:32.966 [[31merror[39m] [REGISTER:reg_1746708752517_h5wir1r2] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 15:52:33.691 [[31merror[39m] [REGISTER:reg_1746708733017_qq71grtw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:33.693 [[31merror[39m] [REGISTER:reg_1746708722569_oypkgany] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:33.696 [[31merror[39m] [REGISTER:reg_1746708722569_oypkgany] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:33.699 [[31merror[39m] [REGISTER:reg_1746708743275_myu7cocp] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:33.840 [[31merror[39m] [REGISTER:reg_1746708723214_amprrx8v] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:33.843 [[31merror[39m] [REGISTER:reg_1746708723214_amprrx8v] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:37.264 [[31merror[39m] [REGISTER:reg_1746708746861_ozvi2gme] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:38.492 [[31merror[39m] [REGISTER:reg_1746708727834_at66075p] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:38.495 [[31merror[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:38.500 [[31merror[39m] [REGISTER:reg_1746708727834_at66075p] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:38.596 [[31merror[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:39.055 [[31merror[39m] [REGISTER:reg_1746708728410_20phaau7] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:39.057 [[31merror[39m] [REGISTER:reg_1746708728410_20phaau7] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:39.525 [[31merror[39m] [REGISTER:reg_1746708738989_epq11p20] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:42.997 [[31merror[39m] [REGISTER:reg_1746708752517_h5wir1r2] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 15:52:43.735 [[31merror[39m] [REGISTER:reg_1746708733017_qq71grtw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:43.736 [[31merror[39m] [REGISTER:reg_1746708743275_myu7cocp] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:43.738 [[31merror[39m] [REGISTER:reg_1746708733017_qq71grtw] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:47.315 [[31merror[39m] [REGISTER:reg_1746708746861_ozvi2gme] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:48.609 [[31merror[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:48.611 [[31merror[39m] [REGISTER:reg_1746708737617_hc6ixwzk] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:48.656 [[31merror[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:49.564 [[31merror[39m] [REGISTER:reg_1746708738989_epq11p20] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:49.568 [[31merror[39m] [REGISTER:reg_1746708738989_epq11p20] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:53.031 [[31merror[39m] [REGISTER:reg_1746708752517_h5wir1r2] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 15:52:53.767 [[31merror[39m] [REGISTER:reg_1746708743275_myu7cocp] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:53.769 [[31merror[39m] [REGISTER:reg_1746708743275_myu7cocp] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:57.341 [[31merror[39m] [REGISTER:reg_1746708746861_ozvi2gme] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:57.344 [[31merror[39m] [REGISTER:reg_1746708746861_ozvi2gme] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:52:58.680 [[31merror[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:52:58.682 [[31merror[39m] [REGISTER:reg_1746708747925_g6xnkh4a] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 15:53:03.063 [[31merror[39m] [REGISTER:reg_1746708752517_h5wir1r2] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 15:53:03.065 [[31merror[39m] [REGISTER:reg_1746708752517_h5wir1r2] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-08 16:12:28.893 [[31merror[39m] [REGISTER:reg_1746709948336_htfmhmca] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-08 16:12:38.933 [[31merror[39m] [REGISTER:reg_1746709948336_htfmhmca] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-08 16:12:48.972 [[31merror[39m] [REGISTER:reg_1746709948336_htfmhmca] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-08 16:12:59.045 [[31merror[39m] [REGISTER:reg_1746709948336_htfmhmca] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-08 16:12:59.049 [[31merror[39m] [REGISTER:reg_1746709948336_htfmhmca] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:13:37.279 [[31merror[39m] [REGISTER:reg_1746886416496_zxxpwa10] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-10 17:13:47.308 [[31merror[39m] [REGISTER:reg_1746886416496_zxxpwa10] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-10 17:13:57.340 [[31merror[39m] [REGISTER:reg_1746886416496_zxxpwa10] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-10 17:14:26.550 [[31merror[39m] [REGISTER:reg_1746886465730_23318712] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-10 17:14:36.735 [[31merror[39m] [REGISTER:reg_1746886465730_23318712] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-10 17:14:46.783 [[31merror[39m] [REGISTER:reg_1746886465730_23318712] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-10 17:14:56.828 [[31merror[39m] [REGISTER:reg_1746886465730_23318712] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-10 17:14:56.830 [[31merror[39m] [REGISTER:reg_1746886465730_23318712] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-10 17:15:42.286 [[31merror[39m] [REGISTER:reg_1746886541474_4hy9adj8] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-10 17:15:52.317 [[31merror[39m] [REGISTER:reg_1746886541474_4hy9adj8] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-10 17:16:02.358 [[31merror[39m] [REGISTER:reg_1746886541474_4hy9adj8] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-10 17:16:12.387 [[31merror[39m] [REGISTER:reg_1746886541474_4hy9adj8] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-10 17:16:12.389 [[31merror[39m] [REGISTER:reg_1746886541474_4hy9adj8] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:48:10.098 [[31merror[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-11 20:48:20.134 [[31merror[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-11 20:48:30.168 [[31merror[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-11 20:48:40.211 [[31merror[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-11 20:48:40.216 [[31merror[39m] [REGISTER:reg_1746985689359_gw0w4i9x] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 20:54:38.626 [[31merror[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-11 20:54:48.665 [[31merror[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-11 20:54:58.696 [[31merror[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-11 20:55:08.738 [[31merror[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-11 20:55:08.742 [[31merror[39m] [REGISTER:reg_1746986077825_8jzxwbbe] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:14.817 [[31merror[39m] [REGISTER:reg_1746989593837_aidwkypt] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-11 21:53:24.873 [[31merror[39m] [REGISTER:reg_1746989593837_aidwkypt] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-11 21:53:34.913 [[31merror[39m] [REGISTER:reg_1746989593837_aidwkypt] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-11 21:53:41.204 [[31merror[39m] [REGISTER:reg_1746989620796_1u6v51k1] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-11 21:53:44.943 [[31merror[39m] [REGISTER:reg_1746989593837_aidwkypt] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-11 21:53:44.951 [[31merror[39m] [REGISTER:reg_1746989593837_aidwkypt] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-11 21:53:51.246 [[31merror[39m] [REGISTER:reg_1746989620796_1u6v51k1] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-11 21:54:01.301 [[31merror[39m] [REGISTER:reg_1746989620796_1u6v51k1] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-11 21:54:11.338 [[31merror[39m] [REGISTER:reg_1746989620796_1u6v51k1] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-11 21:54:11.341 [[31merror[39m] [REGISTER:reg_1746989620796_1u6v51k1] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-12 10:19:01.113 [[31merror[39m] [REGISTER:reg_1747034296634_qfk8apdw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-12 10:19:11.213 [[31merror[39m] [REGISTER:reg_1747034296634_qfk8apdw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-12 10:19:21.254 [[31merror[39m] [REGISTER:reg_1747034296634_qfk8apdw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-12 10:19:31.291 [[31merror[39m] [REGISTER:reg_1747034296634_qfk8apdw] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-12 10:19:31.293 [[31merror[39m] [REGISTER:reg_1747034296634_qfk8apdw] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
+2025-05-16 16:17:48.853 [[31merror[39m] [REGISTER:reg_1747401467801_373br24k] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 1
+}
+2025-05-16 16:17:58.883 [[31merror[39m] [REGISTER:reg_1747401467801_373br24k] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 2
+}
+2025-05-16 16:18:08.921 [[31merror[39m] [REGISTER:reg_1747401467801_373br24k] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 3
+}
+2025-05-16 16:18:18.998 [[31merror[39m] [REGISTER:reg_1747401467801_373br24k] Welcome email could not be sent:
+{
+  "service": "e-pharmacy-server",
+  "error": {
+    "message": "getaddrinfo ENOTFOUND smtp.example.com"
+  },
+  "attempt": 4
+}
+2025-05-16 16:18:19.015 [[31merror[39m] [REGISTER:reg_1747401467801_373br24k] Maximum email retry attempts reached. Email could not be sent.
+{
+  "service": "e-pharmacy-server"
+}
