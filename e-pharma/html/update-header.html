@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Headers</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .instructions {
+            background-color: #f1f8e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #8bc34a;
+        }
+        .file-list {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .warning {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .copy-button {
+            display: block;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .copy-button:hover {
+            background-color: #3367d6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Headers to All Pages</h1>
+        
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <p>The simplest way to add the header and authentication scripts to all pages:</p>
+            <ol>
+                <li>Copy the code snippet below</li>
+                <li>Paste it into the console of each HTML page you want to update</li>
+                <li>After running, save the page to preserve the changes</li>
+            </ol>
+        </div>
+        
+        <h2>Code to Copy:</h2>
+        <pre><code id="code-snippet">
+// Add header and authentication scripts to page
+(function() {
+  // Scripts to add
+  const scripts = [
+    { src: '../JS/header-fix.js', id: 'header-fix-script' },
+    { src: '../JS/user-auth-final.js', id: 'user-auth-final-script' }
+  ];
+  
+  // Add each script to head
+  scripts.forEach(script => {
+    // Only add if not already present
+    if (!document.querySelector(`script[src="${script.src}"]`)) {
+      const scriptElem = document.createElement('script');
+      scriptElem.src = script.src;
+      scriptElem.id = script.id;
+      document.head.appendChild(scriptElem);
+      console.log(`Added ${script.src}`);
+    }
+  });
+  
+  console.log('Header update complete');
+})();
+        </code></pre>
+        
+        <button class="copy-button" onclick="copyCode()">Copy Code</button>
+        
+        <div class="warning">
+            <h3>Important!</h3>
+            <p>After running this code on each page, you must save the changes to the HTML file.</p>
+            <p>This ensures the scripts will be loaded when the page is opened next time.</p>
+        </div>
+        
+        <h2>List of Pages to Update:</h2>
+        <div class="file-list">
+            <ul>
+                <li>home2.html</li>
+                <li>login.html</li>
+                <li>register.html</li>
+                <li>about.html</li>
+                <li>contact.html</li>
+                <li>cart.html</li>
+                <li>dashboard.html</li>
+                <li>admin.html</li>
+                <li>ask ai.html</li>
+                <li>consultation.html</li>
+                <li>delivery.html</li>
+                <li>location.html</li>
+                <li>medicine-details.html</li>
+                <li>prescription-upload.html</li>
+                <li>skin care.html</li>
+                <li>Existingmed.html</li>
+                <li>test-registration.html</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function copyCode() {
+            const codeElement = document.getElementById('code-snippet');
+            const codeText = codeElement.textContent;
+            
+            navigator.clipboard.writeText(codeText)
+                .then(() => {
+                    const button = document.querySelector('.copy-button');
+                    button.textContent = 'Copied!';
+                    setTimeout(() => {
+                        button.textContent = 'Copy Code';
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                    alert('Failed to copy code. Please try selecting and copying manually.');
+                });
+        }
+    </script>
+</body>
+</html>

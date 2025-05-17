@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - E-Pharma</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Essential authentication scripts first -->
+    <script src="../JS/header-fix.js"></script>
+    <script src="../JS/user-auth-final.js"></script>
+    
+    <!-- Stripe JS -->
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Header will be added dynamically -->
+    <div id="header-placeholder"></div>
+
+    <main class="checkout-page">
+        <div class="container">
+            <h1>Checkout</h1>
+            
+            <div class="checkout-progress">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Shipping</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Payment</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Review</div>
+                </div>
+            </div>
+            
+            <div class="checkout-container">
+                <div class="checkout-form-container">
+                    <!-- Step 1: Shipping Information -->
+                    <div class="checkout-step-content active" id="step1Content">
+                        <h2>Shipping Information</h2>
+                        <form id="shippingForm" class="form">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="postalCode">Postal Code</label>
+                                    <input type="text" id="postalCode" name="postalCode" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="JO">Jordan</option>
+                                    <option value="US">United States</option>
+                                    <option value="GB">United Kingdom</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="AU">Australia</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="shippingMethod">Shipping Method</label>
+                                <div class="shipping-options">
+                                    <div class="shipping-option">
+                                        <input type="radio" id="standardShipping" name="shippingMethod" value="standard" checked>
+                                        <label for="standardShipping">
+                                            <div class="option-title">Standard Shipping</div>
+                                            <div class="option-description">3-5 business days</div>
+                                            <div class="option-price">$5.99</div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="shipping-option">
+                                        <input type="radio" id="expressShipping" name="shippingMethod" value="express">
+                                        <label for="expressShipping">
+                                            <div class="option-title">Express Shipping</div>
+                                            <div class="option-description">1-2 business days</div>
+                                            <div class="option-price">$12.99</div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <a href="cart.html" class="button secondary">Back to Cart</a>
+                                <button type="button" class="button primary next-step" data-next="2">Continue to Payment</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Step 2: Payment Information -->
+                    <div class="checkout-step-content" id="step2Content">
+                        <h2>Payment Information</h2>
+                        <form id="paymentForm" class="form">
+                            <div class="form-group">
+                                <label for="paymentMethod">Payment Method</label>
+                                <div class="payment-options">
+                                    <div class="payment-option">
+                                        <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" checked>
+                                        <label for="creditCard">
+                                            <i class="fas fa-credit-card"></i>
+                                            <span>Credit Card</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="creditCardForm">
+                                <div class="form-group">
+                                    <label for="stripe-card-element">Card Details</label>
+                                    <div id="stripe-card-element" class="form-control"></div>
+                                    <div id="stripe-card-errors" class="error-message"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <h3>Billing Address</h3>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="sameAsShipping" name="sameAsShipping" checked>
+                                    <label for="sameAsShipping">Same as shipping address</label>
+                                </div>
+                            </div>
+                            
+                            <div id="billingAddressForm" style="display: none;">
+                                <!-- Billing address fields (hidden by default) -->
+                                <div class="form-group">
+                                    <label for="billingAddress">Address</label>
+                                    <input type="text" id="billingAddress" name="billingAddress">
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="billingCity">City</label>
+                                        <input type="text" id="billingCity" name="billingCity">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="billingPostalCode">Postal Code</label>
+                                        <input type="text" id="billingPostalCode" name="billingPostalCode">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="billingCountry">Country</label>
+                                    <select id="billingCountry" name="billingCountry">
+                                        <option value="">Select Country</option>
+                                        <option value="JO">Jordan</option>
+                                        <option value="US">United States</option>
+                                        <option value="GB">United Kingdom</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="AU">Australia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="button secondary prev-step" data-prev="1">Back to Shipping</button>
+                                <button type="button" class="button primary next-step" data-next="3">Review Order</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Step 3: Review Order -->
+                    <div class="checkout-step-content" id="step3Content">
+                        <h2>Review Your Order</h2>
+                        
+                        <div class="review-section">
+                            <h3>Shipping Information</h3>
+                            <div id="shippingReview" class="review-details"></div>
+                        </div>
+                        
+                        <div class="review-section">
+                            <h3>Payment Information</h3>
+                            <div id="paymentReview" class="review-details"></div>
+                        </div>
+                        
+                        <div class="review-section">
+                            <h3>Order Summary</h3>
+                            <div id="orderReview" class="review-details"></div>
+                        </div>
+                        
+                        <div class="checkbox-group terms-agreement">
+                            <input type="checkbox" id="termsAgreement" name="termsAgreement">
+                            <label for="termsAgreement">I agree to the <a href="terms.html">Terms and Conditions</a> and <a href="privacy.html">Privacy Policy</a></label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="button secondary prev-step" data-prev="2">Back to Payment</button>
+                            <button type="button" id="stripe-pay-btn" class="button primary">Pay Securely</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Confirmation -->
+                    <div class="checkout-step-content" id="confirmationContent">
+                        <div class="order-confirmation">
+                            <div class="confirmation-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h2>Order Confirmed!</h2>
+                            <p>Your order has been placed successfully.</p>
+                            <p>Order #: <span id="orderNumber"></span></p>
+                            <p>A confirmation email has been sent to <span id="confirmationEmail"></span></p>
+                            <div class="confirmation-actions">
+                                <a href="home2.html" class="button secondary">Continue Shopping</a>
+                                <a href="orders.html" class="button primary">View My Orders</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div class="order-items" id="orderItems">
+                        <!-- Order items will be populated by JavaScript -->
+                    </div>
+                    <div class="order-totals">
+                        <div class="subtotal">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="shipping">
+                            <span>Shipping</span>
+                            <span id="shipping">$5.99</span>
+                        </div>
+                        <div class="tax">
+                            <span>Tax</span>
+                            <span id="tax">$0.00</span>
+                        </div>
+                        <div class="total">
+                            <span>Total</span>
+                            <span id="total">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be added dynamically -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <!-- Authentication scripts in the correct order -->
+    <script src="../JS/header-fix.js"></script>
+    <script src="../JS/jwt-bridge.js"></script>
+    
+    <!-- Load cart data first -->
+    <script>
+    // Ensure cart data is available by loading directly from localStorage
+    if (typeof window.ShoppingCart === 'undefined') {
+      console.log('Creating ShoppingCart from localStorage');
+      try {
+        const cartItems = JSON.parse(localStorage.getItem('cart_items') || '[]');
+        window.ShoppingCart = {
+          items: cartItems,
+          getTotalPrice: function() {
+            return this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
+          },
+          clearCart: function() {
+            this.items = [];
+            localStorage.setItem('cart_items', '[]');
+            console.log('Cart cleared');
+          },
+          addItem: function(item) {
+            this.items.push(item);
+            localStorage.setItem('cart_items', JSON.stringify(this.items));
+          },
+          removeItem: function(index) {
+            this.items.splice(index, 1);
+            localStorage.setItem('cart_items', JSON.stringify(this.items));
+          }
+        };
+        console.log('ShoppingCart created with', ShoppingCart.items.length, 'items');
+      } catch (e) {
+        console.error('Failed to load cart from localStorage:', e);
+        window.ShoppingCart = { 
+          items: [], 
+          getTotalPrice: () => 0, 
+          clearCart: () => {},
+          addItem: () => {},
+          removeItem: () => {}
+        };
+      }
+    }
+    </script>
+    
+    <!-- Now load cart.js and checkout script -->
+    <script src="../JS/cart.js"></script>
+    <script src="../JS/cart_checkout.js"></script>
+    
+    <!-- Simple checkout handling -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Checkout page loaded, initializing...');
+      
+      // Setup checkout navigation
+      setupCheckoutNavigation();
+      
+      // Load cart items into order summary
+      updateOrderSummary();
+      
+      // Pre-fill form with user data
+      prefillCheckoutForm();
+      
+      // Setup payment button
+      setupPaymentButton();
+    });
+    
+    // Setup navigation between checkout steps
+    function setupCheckoutNavigation() {
+      // Next step buttons
+      const nextButtons = document.querySelectorAll('.next-step');
+      nextButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const nextStep = button.getAttribute('data-next');
+          if (validateStep(parseInt(nextStep) - 1)) {
+            showStep(nextStep);
+            if (nextStep === '3') {
+              populateReviewData();
+            }
+          }
+        });
+      });
+      
+      // Previous step buttons
+      const prevButtons = document.querySelectorAll('.prev-step');
+      prevButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const prevStep = button.getAttribute('data-prev');
+          showStep(prevStep);
+        });
+      });
+      
+      console.log('Checkout navigation setup complete');
+    }
+    
+    // Show a specific checkout step
+    function showStep(stepNumber) {
+      // Update step indicators
+      document.querySelectorAll('.step').forEach(step => {
+        const stepNum = parseInt(step.getAttribute('data-step'));
+        if (stepNum < stepNumber) {
+          step.classList.add('completed');
+        }
+        if (stepNum === parseInt(stepNumber)) {
+          step.classList.add('active');
+        } else {
+          step.classList.remove('active');
+        }
+      });
+      
+      // Show the right content
+      document.querySelectorAll('.checkout-step-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.getElementById(`step${stepNumber}Content`).classList.add('active');
+      
+      // Scroll to top of form
+      document.querySelector('.checkout-form-container').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Pre-fill form with user data
+    function prefillCheckoutForm() {
+      // Check auth token
+      const authToken = localStorage.getItem('e_pharma_auth_token') || 
+                       localStorage.getItem('token') || 
+                       localStorage.getItem('jwt') || '';
+      
+      if (!authToken) {
+        console.warn('No authentication token found, initiating guest checkout...');
+      } else {
+        console.log('Authentication token found:', authToken.substring(0, 10) + '...');
+        // Try to load user data
+        try {
+          const userData = JSON.parse(localStorage.getItem('user_info') || '{}');
+          if (userData) {
+            const fullNameField = document.getElementById('fullName');
+            const emailField = document.getElementById('email');
+            const phoneField = document.getElementById('phone');
+            
+            if (fullNameField && userData.firstName) {
+              fullNameField.value = userData.firstName + ' ' + (userData.lastName || '');
+            }
+            
+            if (emailField && userData.email) {
+              emailField.value = userData.email;
+            }
+            
+            if (phoneField && userData.phone) {
+              phoneField.value = userData.phone;
+            }
+          }
+        } catch (e) {
+          console.error('Error parsing user data:', e);
+        }
+      }
+      
+      // Also check for previous checkout data
+      try {
+        const checkoutData = JSON.parse(localStorage.getItem('checkout_data') || '{}');
+        if (Object.keys(checkoutData).length > 0) {
+          console.log('Found previous checkout data');
+          const fillField = (id, value) => {
+            const field = document.getElementById(id);
+            if (field && value) field.value = value;
+          };
+          
+          fillField('fullName', checkoutData.fullName);
+          fillField('email', checkoutData.email);
+          fillField('phone', checkoutData.phone);
+          fillField('address', checkoutData.address);
+          fillField('city', checkoutData.city);
+          fillField('postalCode', checkoutData.postalCode);
+          
+          if (checkoutData.country) {
+            const countryField = document.getElementById('country');
+            if (countryField) countryField.value = checkoutData.country;
+          }
+        }
+      } catch (e) {
+        console.error('Error loading saved checkout data:', e);
+      }
+    }
+    
+    // Setup payment button
+    function setupPaymentButton() {
+      const payBtn = document.getElementById('stripe-pay-btn');
+      if (payBtn) {
+        payBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Validate form fields
+          if (!document.getElementById('termsAgreement').checked) {
+            alert('Please agree to the Terms and Conditions');
+            return;
+          }
+          
+          // Process payment using cart_checkout.js functions
+          if (typeof processDirectPayment === 'function') {
+            const paymentData = {
+              fullName: document.getElementById('fullName').value,
+              email: document.getElementById('email').value,
+              phone: document.getElementById('phone').value,
+              address: document.getElementById('address').value,
+              city: document.getElementById('city').value,
+              postalCode: document.getElementById('postalCode').value,
+              country: document.getElementById('country').value,
+              items: window.ShoppingCart ? ShoppingCart.items : []
+            };
+            
+            // Store checkout data
+            localStorage.setItem('checkout_data', JSON.stringify(paymentData));
+            
+            // Process payment directly
+            processDirectPayment(paymentData);
+          } else {
+            console.error('Payment processing function not available');
+            alert('Unable to process payment. Please try again.');
+          }
+        });
+        console.log('Payment button handler attached');
+      } else {
+        console.warn('Payment button not found on page');
+      }
+    }
+    
+    // Update order summary with cart items
+    function updateOrderSummary() {
+      if (!window.ShoppingCart || !ShoppingCart.items) {
+        console.warn('ShoppingCart not found, cannot update order summary');
+        return;
+      }
+      
+      const cartItems = ShoppingCart.items;
+      const orderItems = document.getElementById('orderItems');
+      
+      if (!orderItems) {
+        console.warn('Order items element not found');
+        return;
+      }
+      
+      // Check if cart is empty
+      if (!cartItems || cartItems.length === 0) {
+        orderItems.innerHTML = '<p>Your cart is empty.</p>';
+        return;
+      }
+      
+      // Build HTML for order items
+      let itemsHTML = '';
+      cartItems.forEach((item) => {
+        itemsHTML += `
+          <div class="order-item">
+            <div class="item-details">
+              <h4>${item.name}</h4>
+              <p>Qty: ${item.quantity}</p>
+            </div>
+            <div class="item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+          </div>
+        `;
+      });
+      
+      orderItems.innerHTML = itemsHTML;
+      
+      // Get shipping method
+      const shippingMethod = document.querySelector('input[name="shippingMethod"]:checked')?.value || 'standard';
+      const shippingRates = {
+        standard: 5.99,
+        express: 12.99
+      };
+      
+      // Calculate totals
+      const subtotal = ShoppingCart.getTotalPrice();
+      const shippingCost = shippingRates[shippingMethod] || shippingRates.standard;
+      const tax = subtotal * 0.16; // 16% tax rate
+      const total = subtotal + shippingCost + tax;
+      
+      // Update totals display
+      const subtotalEl = document.getElementById('subtotal');
+      const shippingEl = document.getElementById('shipping');
+      const taxEl = document.getElementById('tax');
+      const totalEl = document.getElementById('total');
+      
+      if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+      if (shippingEl) shippingEl.textContent = `$${shippingCost.toFixed(2)}`;
+      if (taxEl) taxEl.textContent = `$${tax.toFixed(2)}`;
+      if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+      
+      console.log('Order summary updated with', cartItems.length, 'items');
+    }
+    
+    // Populate review step with data from previous steps
+    function populateReviewData() {
+      // Shipping review
+      const shippingReview = document.getElementById("shippingReview");
+      if (shippingReview) {
+        shippingReview.innerHTML = `
+          <p><strong>Name:</strong> ${document.getElementById("fullName").value}</p>
+          <p><strong>Email:</strong> ${document.getElementById("email").value}</p>
+          <p><strong>Phone:</strong> ${document.getElementById("phone").value}</p>
+          <p><strong>Address:</strong> ${document.getElementById("address").value}</p>
+          <p><strong>City:</strong> ${document.getElementById("city").value}</p>
+          <p><strong>Postal Code:</strong> ${document.getElementById("postalCode").value}</p>
+          <p><strong>Country:</strong> ${document.getElementById("country").options[document.getElementById("country").selectedIndex]?.text || 'Unknown'}</p>
+        `;
+      }
+      
+      // Payment review
+      const paymentReview = document.getElementById("paymentReview");
+      if (paymentReview) {
+        paymentReview.innerHTML = `<p><strong>Payment Method:</strong> Credit Card</p>`;
+      }
+      
+      // Order review (reuse updateOrderSummary logic)
+      updateOrderSummary();
+    }
+    
+    // Validate form fields for each step
+    function validateStep(stepNumber) {
+      switch (stepNumber) {
+        case 1:
+          // Shipping validation
+          const requiredShippingFields = ["fullName", "email", "phone", "address", "city", "postalCode", "country"];
+          return validateRequiredFields(requiredShippingFields);
+          
+        case 2:
+          // Payment validation - nothing to validate for direct payment
+          return true;
+          
+        case 3:
+          // Terms agreement validation
+          return document.getElementById("termsAgreement").checked;
+          
+        default:
+          return true;
+      }
+    }
+    
+    // Validate required form fields
+    function validateRequiredFields(fields) {
+      let isValid = true;
+      let missingFields = [];
+      
+      fields.forEach((field) => {
+        const input = document.getElementById(field);
+        if (input && !input.value.trim()) {
+          input.classList.add("error");
+          missingFields.push(field);
+          isValid = false;
+        } else if (input) {
+          input.classList.remove("error");
+        }
+      });
+      
+      if (!isValid) {
+        const fieldNames = missingFields.map(f => {
+          const label = document.querySelector(`label[for='${f}']`);
+          return label ? label.textContent : f;
+        });
+        
+        alert("Please fill in all required fields:\n" + fieldNames.join(", "));
+      }
+      
+      return isValid;
+    }
+    </script>
+</body>
+</html>

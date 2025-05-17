@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Delivery - E-Pharma</title>
+    <link rel="stylesheet" href="../css/delivery.css">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <script src="../JS/header-fix.js"></script>
+    <script src="../JS/user-auth-final.js"></script>
+    <script src="../JS/navbar-role-control.js"></script>
+    <script src="../JS/user-auth-final.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 100 100" width="40" height="40">
+                                <circle cx="50" cy="50" r="48" fill="#1a73e8"></circle>
+                                <circle cx="50" cy="50" r="38" fill="white"></circle>
+                                <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8"></rect>
+                                <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8"></rect>
+                            </svg>
+                        </div>
+                        <h1>E-Pharma</h1>
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <button class="mobile-menu-btn" aria-label="Toggle menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-list">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="existingmed.html">Medicines</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="location.html">Locations</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="auth-buttons"></div>
+                    <a href="/login.html" class="btn btn-outline">Login</a>
+                    <a href="/register.html" class="btn btn-primary">Sign Up</a>
+                    <button class="cart-btn" aria-label="Shopping cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Medication Delivery</h2>
+            <p>Fast, reliable delivery of your medications right to your doorstep</p>
+        </div>
+    </section>
+
+    <section class="delivery-hero">
+        <div class="container">
+            <div class="delivery-hero-content">
+                <div class="delivery-hero-text">
+                    <h3>Convenient Medication Delivery</h3>
+                    <p>Never worry about running out of your essential medications again. Our delivery service brings your prescriptions and over-the-counter products directly to your home or office.</p>
+                    <div class="delivery-features">
+                        <div class="delivery-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Same-day delivery available</span>
+                        </div>
+                        <div class="delivery-feature">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Real-time tracking</span>
+                        </div>
+                        <div class="delivery-feature">
+                            <i class="fas fa-temperature-low"></i>
+                            <span>Temperature-controlled packaging</span>
+                        </div>
+                        <div class="delivery-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure and discreet</span>
+                        </div>
+                    </div>
+                    <a href="existingmed.html" class="btn btn-primary">Order Medications</a>
+                </div>
+                <div class="delivery-hero-image">
+                    <img src="https://via.placeholder.com/600x400" alt="Medication Delivery">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="delivery-options">
+        <div class="container">
+            <h3>Delivery Options</h3>
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-header">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Express Delivery</h4>
+                    </div>
+                    <div class="option-content">
+                        <p>Get your medications within 2-4 hours in select areas.</p>
+                        <ul>
+                            <li>Available 7 days a week</li>
+                            <li>Order by 4 PM for same-day delivery</li>
+                            <li>Live tracking available</li>
+                            <li>Delivery confirmation</li>
+                        </ul>
+                        <div class="option-price">$9.99</div>
+                    </div>
+                </div>
+                
+                <div class="option-card featured">
+                    <div class="option-badge">Most Popular</div>
+                    <div class="option-header">
+                        <i class="fas fa-truck"></i>
+                        <h4>Standard Delivery</h4>
+                    </div>
+                    <div class="option-content">
+                        <p>Receive your medications within 24 hours.</p>
+                        <ul>
+                            <li>Available Monday-Saturday</li>
+                            <li>Order by 8 PM for next-day delivery</li>
+                            <li>Delivery status updates</li>
+                            <li>Signature confirmation available</li>
+                        </ul>
+                        <div class="option-price">$4.99</div>
+                    </div>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-header">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Scheduled Delivery</h4>
+                    </div>
+                    <div class="option-content">
+                        <p>Set up recurring deliveries for your regular medications.</p>
+                        <ul>
+                            <li>Weekly, bi-weekly, or monthly options</li>
+                            <li>Automatic refills</li>
+                            <li>Flexible delivery windows</li>
+                            <li>Email/SMS reminders</li>
+                        </ul>
+                        <div class="option-price">Free with subscription</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="delivery-map">
+        <div class="container">
+            <h3>Delivery Coverage Area</h3>
+            <p class="section-description">We currently deliver to the following areas. Enter your zip code to check if delivery is available in your location.</p>
+            
+            <div class="zip-checker">
+                <input type="text" id="zipCode" placeholder="Enter your zip code" maxlength="5">
+                <button id="checkZip" class="btn btn-primary">Check Availability</button>
+            </div>
+            
+            <div id="zipResult" class="zip-result"></div>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h4>Delivery Coverage Map</h4>
+                    <p>Interactive map coming soon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="delivery-faq">
+        <div class="container">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How do I track my delivery?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Once your order is confirmed, you'll receive a tracking link via email and SMS. You can also track your delivery in real-time through your account dashboard. Our delivery personnel will update the status at each stage of the delivery process.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What if I'm not home during delivery?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If you're not home during delivery, our delivery personnel will follow your delivery preferences set during checkout. Options include: leaving the package in a secure location, delivery to a neighbor, or rescheduling for a more convenient time. For medications requiring signature, we'll leave a notice and attempt delivery again the next day.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How are temperature-sensitive medications handled?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Temperature-sensitive medications are transported in specialized packaging with temperature-controlled insulation and cooling elements. Our delivery vehicles are equipped with refrigeration units when necessary, and we monitor temperature throughout transit to ensure your medications maintain their efficacy.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Can I schedule a specific delivery time?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can select a preferred delivery window during checkout. We offer morning (9 AM - 12 PM), afternoon (12 PM - 4 PM), and evening (4 PM - 8 PM) delivery windows. For premium members, we also offer specific 2-hour delivery windows for added convenience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 100 100" width="40" height="40">
+                                <circle cx="50" cy="50" r="48" fill="#1a73e8"></circle>
+                                <circle cx="50" cy="50" r="38" fill="white"></circle>
+                                <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8"></rect>
+                                <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8"></rect>
+                            </svg>
+                        </div>
+                        <h2>E-Pharma</h2>
+                    </div>
+                    <p>Your trusted partner for all your pharmaceutical needs. We provide quality medications, healthcare products, and professional services to improve your wellbeing.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="existingmed.html">Medicines</a></li>
+                        <li><a href="skin care.html">Skincare</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="location.html">Locations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Support</h3>
+                    <ul>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <address>
+                        <p>123 Pharmacy Street<br>Medical District, MD 12345<br>United States</p>
+                        <p><strong>Phone:</strong> (123) 456-7890</p>
+                        <p><strong>Email:</strong> info@epharma.com</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2023</span> E-Pharma. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="ToS.html">Terms of Service</a>
+                    <a href="sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../JS/script.js"></script>
+    <script src="../JS/delivery.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+/* Consultation Page Styles */
+.consultation-section {
+  padding: 60px 0;
+  background-color: #f5f5f5;
+}
+
+.consultation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.consultation-info {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.consultation-info h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.steps {
+  margin-bottom: 30px;
+}
+
+.step {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.step-content h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.step-content p {
+  color: #666;
+}
+
+.consultation-benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.consultation-benefits li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.consultation-benefits i {
+  color: var(--secondary-color);
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.consultation-form-container {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.consultation-form h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-top: 5px;
+}
+
+.checkbox-group label {
+  font-weight: normal;
+}
+
+/* Pharmacists Section */
+.pharmacists-section {
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+.pharmacists-section h3 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.section-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: #666;
+}
+
+.pharmacists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.pharmacist-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.pharmacist-card:hover {
+  transform: translateY(-5px);
+}
+
+.pharmacist-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.pharmacist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.pharmacist-card:hover .pharmacist-image img {
+  transform: scale(1.05);
+}
+
+.pharmacist-card h4 {
+  font-size: 20px;
+  margin: 15px 0 5px;
+  color: #333;
+}
+
+.pharmacist-title {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.pharmacist-specialties,
+.pharmacist-experience {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+  padding: 0 15px;
+}
+
+.pharmacist-card .btn {
+  margin: 15px 0;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 60px 0;
+  background-color: #f5f5f5;
+}
+
+.faq-section h3 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-grid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.faq-question {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--primary-light);
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #e0e9f5;
+}
+
+.faq-question h4 {
+  font-size: 18px;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.faq-question i {
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  padding: 15px 20px;
+  max-height: 200px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .consultation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consultation-info {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pharmacists-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .pharmacists-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    flex-direction: column;
+  }
+
+  .step-number {
+    margin-bottom: 10px;
+  }
+}

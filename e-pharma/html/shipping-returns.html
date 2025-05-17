@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping & Returns Policy - E-Pharma</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .shipping-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .shipping-section {
+            margin-bottom: 30px;
+        }
+        
+        .shipping-section h2 {
+            color: #2c5282;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .info-table th, .info-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .info-table th {
+            background-color: #f7fafc;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .info-table tr:hover {
+            background-color: #f7fafc;
+        }
+        
+        .info-box {
+            background-color: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background-color: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .tab-navigation {
+            display: flex;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 30px;
+        }
+        
+        .tab-button {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #4a5568;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button:hover {
+            color: #2b6cb0;
+        }
+        
+        .tab-button.active {
+            color: #2b6cb0;
+            border-bottom-color: #2b6cb0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">E-Pharma</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="consultation.html">Consultation</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="shipping-container">
+        <h1>Shipping & Returns Policy</h1>
+        
+        <div class="tab-navigation">
+            <button class="tab-button active" data-tab="shipping">Shipping Information</button>
+            <button class="tab-button" data-tab="returns">Returns & Refunds</button>
+        </div>
+        
+        <div id="shipping" class="tab-content active">
+            <div class="shipping-section">
+                <h2>Shipping Methods</h2>
+                <p>At E-Pharma, we offer several shipping options to meet your needs. All orders are processed within 1-2 business days after payment confirmation and prescription verification (if applicable).</p>
+                
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Shipping Method</th>
+                            <th>Estimated Delivery Time</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Standard Shipping</td>
+                            <td>3-5 business days</td>
+                            <td>$4.95 (Free on orders over $35)</td>
+                        </tr>
+                        <tr>
+                            <td>Expedited Shipping</td>
+                            <td>2-3 business days</td>
+                            <td>$9.95</td>
+                        </tr>
+                        <tr>
+                            <td>Express Shipping</td>
+                            <td>1-2 business days</td>
+                            <td>$14.95</td>
+                        </tr>
+                        <tr>
+                            <td>Same-Day Delivery</td>
+                            <td>Same day (order before 1 PM local time)</td>
+                            <td>$19.95 (Available in select metro areas)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box">
+                    <p><strong>Note:</strong> Shipping timeframes are estimates and based on business days (Monday-Friday, excluding holidays). Weather conditions and other factors may affect delivery times.</p>
+                </div>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>Temperature-Sensitive Medications</h2>
+                <p>Some medications require special handling to maintain their effectiveness and safety. We take extra care when shipping temperature-sensitive medications.</p>
+                
+                <ul>
+                    <li>Medications requiring refrigeration are shipped with specialized cooling packs in insulated containers designed to maintain proper temperature for up to 72 hours.</li>
+                    <li>During extreme weather conditions, we may hold shipments to protect medication integrity or use alternative shipping methods.</li>
+                    <li>For medications requiring refrigeration, express shipping is recommended and may be required in some cases.</li>
+                    <li>Temperature-controlled shipping may incur additional fees, which will be disclosed during checkout.</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <p><strong>Important:</strong> If you receive a temperature-sensitive medication that appears to have been exposed to extreme temperatures (container is warm, cooling packs completely melted), please contact us immediately before using the medication.</p>
+                </div>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>Tracking Your Order</h2>
+                <p>Once your order ships, you will receive a shipping confirmation email with a tracking number. You can track your package by:</p>
+                
+                <ul>
+                    <li>Clicking the tracking link in your shipping confirmation email</li>
+                    <li>Logging into your E-Pharma account and viewing your order history</li>
+                    <li>Contacting our customer service team with your order number</li>
+                </ul>
+                
+                <p>Our real-time tracking system will provide updates on your package's location and estimated delivery date. For most shipping methods, delivery confirmation is required.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>International Shipping</h2>
+                <p>Currently, E-Pharma only ships within the United States and its territories. This is due to the varying regulations regarding pharmaceutical products across different countries. We are exploring options to expand our services internationally in the future.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>Shipping Restrictions</h2>
+                <p>Some medications may have shipping restrictions due to federal or state regulations:</p>
+                
+                <ul>
+                    <li>Controlled substances may require signature upon delivery</li>
+                    <li>Certain medications cannot be shipped to P.O. boxes</li>
+                    <li>Some medications may not be available for shipment to all states due to varying state laws</li>
+                </ul>
+                
+                <p>Any shipping restrictions for your specific medications will be communicated during the checkout process.</p>
+            </div>
+        </div>
+        
+        <div id="returns" class="tab-content">
+            <div class="shipping-section">
+                <h2>Return Policy</h2>
+                <p>Due to the nature of pharmaceutical products and for patient safety, our return policy is subject to strict guidelines:</p>
+                
+                <h3>Over-the-Counter (OTC) Products</h3>
+                <ul>
+                    <li>Unopened and unused OTC products may be returned within 30 days of delivery.</li>
+                    <li>Items must be in their original packaging with all seals intact.</li>
+                    <li>Return shipping costs are the customer's responsibility unless the return is due to our error.</li>
+                </ul>
+                
+                <h3>Prescription Medications</h3>
+                <ul>
+                    <li>For safety and regulatory reasons, prescription medications cannot be returned once dispensed.</li>
+                    <li>Exceptions are made only in cases of:
+                        <ul>
+                            <li>Shipping damage</li>
+                            <li>Dispensing errors</li>
+                            <li>Quality issues</li>
+                            <li>Recalled medications</li>
+                        </ul>
+                    </li>
+                    <li>If you believe you have received incorrect or damaged prescription medication, contact our pharmacy team immediately at (555) 123-4567.</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <p><strong>Important Safety Notice:</strong> Do not use medications that appear damaged, tampered with, or different from what you normally receive. Contact us immediately if you have concerns about your medication.</p>
+                </div>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>Refund Process</h2>
+                <p>The following guidelines apply to our refund process:</p>
+                
+                <ul>
+                    <li>For approved returns, refunds will be issued to the original payment method.</li>
+                    <li>Refunds typically process within 5-7 business days after we receive and inspect your return.</li>
+                    <li>Shipping costs are non-refundable unless the return is due to our error.</li>
+                    <li>For prescription medication issues, a pharmacist will review your case before a refund is processed.</li>
+                </ul>
+                
+                <div class="info-box">
+                    <p><strong>Note:</strong> If you paid using insurance, refunds may need to be processed through your insurance company, which may extend the refund timeline.</p>
+                </div>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>How to Request a Return</h2>
+                <p>To initiate a return, please follow these steps:</p>
+                
+                <ol>
+                    <li>Contact our customer service team at (555) 123-4567 or email returns@e-pharma.com within 30 days of receiving your order.</li>
+                    <li>Provide your order number, the items you wish to return, and the reason for the return.</li>
+                    <li>Our team will review your request and provide a Return Merchandise Authorization (RMA) number if your return is approved.</li>
+                    <li>Package the item(s) securely in their original packaging, if possible, and include the RMA number on the outside of the package.</li>
+                    <li>Ship the package to the address provided by our customer service team.</li>
+                </ol>
+                
+                <p>All returns must be postmarked within 10 days of receiving your RMA number.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>Damaged or Incorrect Items</h2>
+                <p>If you receive damaged or incorrect items:</p>
+                
+                <ol>
+                    <li>Contact us immediately at (555) 123-4567.</li>
+                    <li>Take photos of the damaged items or packaging as evidence.</li>
+                    <li>Do not discard the damaged items or packaging until instructed to do so.</li>
+                    <li>We will arrange for a replacement to be shipped as soon as possible at no additional cost.</li>
+                </ol>
+                
+                <p>For prescription medications, our pharmacist will conduct a detailed review to ensure patient safety before sending a replacement.</p>
+            </div>
+            
+            <div class="shipping-section">
+                <h2>Cancellations</h2>
+                <p>Order cancellation guidelines:</p>
+                
+                <ul>
+                    <li>Orders can be cancelled within 30 minutes of placement, provided they haven't been processed.</li>
+                    <li>To cancel an order, log into your account and select "Cancel Order" from your order history, or contact customer service immediately.</li>
+                    <li>Once an order has been processed or shipped, it cannot be cancelled, but may be eligible for return as described above.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+                <h3>E-Pharma</h3>
+                <p>Your trusted online pharmacy</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="consultation.html">Consultation</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="ToS.html">Terms of Service</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="Compliance.html">Compliance</a></li>
+                    <li><a href="Accessibility.html">Accessibility</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="help-center.html">Help Center</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="shipping-returns.html">Shipping & Returns</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 E-Pharma. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Check if URL has an anchor and activate the corresponding tab
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                if (document.getElementById(hash)) {
+                    const targetButton = document.querySelector(`.tab-button[data-tab="${hash}"]`);
+                    if (targetButton) {
+                        targetButton.click();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

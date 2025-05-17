@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - E-Pharma</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <!-- Essential authentication scripts -->
+  <script src="../JS/header-fix.js"></script>
+  <script src="../JS/user-auth-final.js"></script>
+  
+  <!-- Make sure cart.js is loaded separately and properly -->
+  <script>
+    // Check if cart.js is already loaded
+    if (typeof ShoppingCart === 'undefined') {
+      // Create a script element to load cart.js
+      const cartScript = document.createElement('script');
+      cartScript.src = '../JS/cart.js';
+      cartScript.async = false;
+      document.head.appendChild(cartScript);
+    }
+  </script>
+  
+  <!-- Load Stripe.js first, then our checkout script -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="../JS/cart_checkout.js"></script>
+  
+  <!-- Load other dependencies -->
+  <script src="../JS/navbar-role-control.js"></script>
+</head>
+<body>
+  <div class="premium-container">
+    <header class="premium-header">
+      <div class="premium-logo-section">
+        <div class="premium-logo">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 40px;">
+            <circle cx="50" cy="50" r="48" fill="#1a73e8" />
+            <circle cx="50" cy="50" r="38" fill="white" />
+            <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8" />
+            <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8" />
+          </svg>
+        </div>
+        <h1 class="text-white text-xl font-bold">E-Pharma</h1>
+      </div>
+    </header>
+
+    <main class="p-8">
+      <h2 class="text-2xl font-bold mb-6">🛒 Your Shopping Cart</h2>
+      <div id="cart-container"></div>
+      <div id="stripe-card-element" class="my-4"></div>
+      <div id="stripe-card-errors" class="text-red-600 mb-2"></div>
+      <div class="mt-6">
+        <button id="stripe-pay-btn" class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700">
+          Pay Securely
+        </button>
+        <!-- Add a checkout form that will be shown when payment is initiated -->
+        <div id="checkout-form" style="display:none; margin-top: 20px; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px;">
+          <h3 class="text-xl font-bold mb-4">Checkout Information</h3>
+          <div style="margin-bottom: 15px;">
+            <label for="fullName" style="display: block; margin-bottom: 5px;">Full Name *</label>
+            <input type="text" id="fullName" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+          <div style="margin-bottom: 15px;">
+            <label for="email" style="display: block; margin-bottom: 5px;">Email *</label>
+            <input type="email" id="email" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+          <div style="margin-bottom: 15px;">
+            <label for="phone" style="display: block; margin-bottom: 5px;">Phone</label>
+            <input type="tel" id="phone" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+          <div style="margin-bottom: 15px;">
+            <label for="address" style="display: block; margin-bottom: 5px;">Address *</label>
+            <input type="text" id="address" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+          </div>
+          <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+            <div style="flex: 1;">
+              <label for="city" style="display: block; margin-bottom: 5px;">City *</label>
+              <input type="text" id="city" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+            <div style="flex: 1;">
+              <label for="postalCode" style="display: block; margin-bottom: 5px;">Postal Code *</label>
+              <input type="text" id="postalCode" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+            </div>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <label for="country" style="display: block; margin-bottom: 5px;">Country *</label>
+            <select id="country" required style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+              <option value="">Select Country</option>
+              <option value="US">United States</option>
+              <option value="CA">Canada</option>
+              <option value="GB">United Kingdom</option>
+              <option value="AU">Australia</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function renderCartPage() {
+      const cartContainer = document.getElementById('cart-container');
+      const stripePayBtn = document.getElementById('stripe-pay-btn');
+      const cart = (window.ShoppingCart && Array.isArray(ShoppingCart.items)) ? ShoppingCart.items : [];
+      if (!cart.length) {
+        cartContainer.innerHTML = `<p>Your cart is empty.</p>`;
+        if (stripePayBtn) stripePayBtn.disabled = true;
+        return;
+      }
+
+      let total = 0;
+      cartContainer.innerHTML = `
+        <table class="w-full border border-gray-300 text-left">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="p-2">Product</th>
+              <th class="p-2">Price</th>
+              <th class="p-2">Quantity</th>
+              <th class="p-2">Total</th>
+              <th class="p-2">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${cart.map(item => {
+              const itemTotal = item.price * item.quantity;
+              total += itemTotal;
+              return `
+                <tr>
+                  <td class="p-2">${item.name}</td>
+                  <td class="p-2">$${item.price.toFixed(2)}</td>
+                  <td class="p-2">
+                    <button onclick="window.changeQuantity && changeQuantity('${item.id}', -1)">−</button>
+                    ${item.quantity}
+                    <button onclick="window.changeQuantity && changeQuantity('${item.id}', 1)">+</button>
+                  </td>
+                  <td class="p-2">$${itemTotal.toFixed(2)}</td>
+                  <td class="p-2">
+                    <button onclick="window.removeFromCart && removeFromCart('${item.id}')" class="text-red-600">Remove</button>
+                  </td>
+                </tr>
+              `;
+            }).join('')}
+            <tr class="font-bold bg-gray-100">
+              <td colspan="3" class="p-2 text-right">Total:</td>
+              <td class="p-2">$${total.toFixed(2)}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+      if (stripePayBtn) stripePayBtn.disabled = false;
+    }
+
+    // Expose helpers for quantity/actions
+    window.changeQuantity = function(id, delta) {
+      const cart = (window.ShoppingCart && Array.isArray(ShoppingCart.items)) ? ShoppingCart.items : [];
+      const item = cart.find(i => i.id == id);
+      if (!item) return;
+      const newQuantity = item.quantity + delta;
+      if (window.ShoppingCart && typeof ShoppingCart.updateQuantity === 'function') {
+        ShoppingCart.updateQuantity(id, newQuantity);
+        renderCartPage();
+      }
+    }
+    window.removeFromCart = function(id) {
+      if (window.ShoppingCart && typeof ShoppingCart.removeItem === 'function') {
+        ShoppingCart.removeItem(id);
+        renderCartPage();
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Wait for ShoppingCart to initialize
+      if (window.ShoppingCart && typeof ShoppingCart.init === 'function') {
+        ShoppingCart.init();
+      }
+      renderCartPage();
+
+      // Handle Pay button click - show checkout form instead of redirecting
+      const payBtn = document.getElementById('stripe-pay-btn');
+      const checkoutForm = document.getElementById('checkout-form');
+      
+      if (payBtn) {
+        payBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Show checkout form instead of redirecting
+          if (checkoutForm) {
+            checkoutForm.style.display = 'block';
+            payBtn.textContent = 'Complete Payment';
+            
+            // Change button behavior for second click
+            payBtn.removeEventListener('click', arguments.callee);
+            
+            // On second click, process payment directly
+            payBtn.addEventListener('click', async function(e) {
+              e.preventDefault();
+              
+              // Validate form fields
+              const requiredFields = ['fullName', 'email', 'address', 'city', 'postalCode', 'country'];
+              let isValid = true;
+              
+              requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input || !input.value.trim()) {
+                  isValid = false;
+                  if (input) input.style.borderColor = 'red';
+                } else if (input) {
+                  input.style.borderColor = '#ccc';
+                }
+              });
+              
+              if (!isValid) {
+                alert('Please fill in all required fields');
+                return;
+              }
+              
+              // Use the processPayment function from cart_checkout.js if available
+              if (typeof processStripePayment === 'function') {
+                processStripePayment();
+              } else {
+                // Fallback to simple redirect to prevent login loop
+                const errorMsg = document.getElementById('stripe-card-errors');
+                if (errorMsg) {
+                  errorMsg.textContent = 'Processing payment... Please wait.';
+                }
+                
+                // Send payment info to backend directly without redirect
+                try {
+                  const paymentData = {
+                    fullName: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone')?.value || '',
+                    address: document.getElementById('address').value,
+                    city: document.getElementById('city').value,
+                    postalCode: document.getElementById('postalCode').value,
+                    country: document.getElementById('country').value,
+                    items: window.ShoppingCart ? ShoppingCart.items : []
+                  };
+                  
+                  // Store in localStorage instead of redirect
+                  localStorage.setItem('checkout_data', JSON.stringify(paymentData));
+                  
+                  // Process directly if possible, otherwise redirect safely
+                  if (typeof processDirectPayment === 'function') {
+                    processDirectPayment(paymentData);
+                  } else {
+                    // Only redirect if we have to - target the order confirmation
+                    window.location.href = 'order-confirmation.html';
+                  }
+                } catch (err) {
+                  console.error('Payment processing error:', err);
+                  if (errorMsg) {
+                    errorMsg.textContent = 'Payment processing failed. Please try again.';
+                  }
+                }
+              }
+            });
+          }
+        });
+      }
+      
+      // Stripe integration will be initialized in cart_checkout.js
+      // Add error handling for Stripe
+      try {
+        if (window.initStripePayment) {
+          window.initStripePayment();
+        }
+      } catch (e) {
+        const stripeErr = document.getElementById('stripe-card-errors');
+        if (stripeErr) stripeErr.textContent = 'Stripe payment could not be initialized.';
+        console.error('[Cart] Stripe init error:', e);
+      }
+    });
+  </script>
+  <!-- Removed duplicate module imports -->
+</body>
+</html>

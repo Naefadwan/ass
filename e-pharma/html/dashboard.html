@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Pharma - Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Load header-fix.js first for authentication -->
+    <script src="../JS/header-fix.js"></script>
+    
+    <!-- Authentication scripts -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Dashboard authentication check...');
+        // Check if user is logged in through header-fix.js
+        if (typeof window.isUserLoggedIn === 'function') {
+            if (!window.isUserLoggedIn()) {
+                console.log('User not logged in, redirecting...');
+                window.location.href = './login.html';
+            } else {
+                console.log('User is logged in, continuing to dashboard');
+            }
+        } else {
+            // Fallback check if header-fix isn't loaded properly
+            if (!localStorage.getItem('authToken')) {
+                console.log('Auth token not found, redirecting...');
+                window.location.href = './login.html';
+            }
+        }
+    });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-section">
+            <div class="logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" fill="#1a73e8" />
+                    <circle cx="50" cy="50" r="38" fill="white" />
+                    <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8" />
+                    <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8" />
+                </svg>
+            </div>
+            <h1>E-Pharma</h1>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search medications, prescriptions...">
+            <button id="searchButton"><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="user-section">
+            <div class="notifications">
+                <div class="notification-icon" id="notificationIcon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge" id="notificationCount">3</span>
+                </div>
+                <div class="notification-dropdown" id="notificationDropdown">
+                    <div class="notification-header">
+                        <h3>Notifications</h3>
+                        <button id="markAllRead">Mark all as read</button>
+                    </div>
+                    <div class="notification-list" id="notificationList">
+                        <!-- Notifications will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="user-profile" id="userProfileToggle">
+                <div class="avatar" id="userAvatar">T</div>
+                <span id="userName">Test User</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            
+            <div class="user-dropdown" id="userDropdown">
+                <ul>
+                    <li><a href="#profile"><i class="fas fa-user"></i> My Profile</a></li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#help"><i class="fas fa-question-circle"></i> Help</a></li>
+                    <li><button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Notifications Area -->
+        <div class="notifications-area"></div>
+        
+        <div class="welcome-banner">
+            <h1>Welcome to your Health Dashboard, <span id="welcomeUserName">Test User</span></h1>
+            <p>Manage your prescriptions, view your medication history, and more.</p>
+        </div>
+        
+        <div class="dashboard-summary">
+            <div class="summary-card">
+                <div class="summary-icon">
+                    <i class="fas fa-prescription"></i>
+                </div>
+                <div class="summary-info">
+                    <h3>Active Prescriptions</h3>
+                    <p id="activePrescriptionCount">2</p>
+                </div>
+            </div>
+            
+            <div class="summary-card">
+                <div class="summary-icon">
+                    <i class="fas fa-pills"></i>
+                </div>
+                <div class="summary-info">
+                    <h3>Current Medications</h3>
+                    <p id="medicationCount">4</p>
+                </div>
+            </div>
+            
+            <div class="summary-card">
+                <div class="summary-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="summary-info">
+                    <h3>Upcoming Refills</h3>
+                    <p id="upcomingRefillCount">1</p>
+                </div>
+            </div>
+            
+            <div class="summary-card">
+                <div class="summary-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="summary-info">
+                    <h3>Recent Orders</h3>
+                    <p id="recentOrderCount">3</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+                <button class="tab-btn" data-tab="prescriptions">Prescriptions</button>
+                <button class="tab-btn" data-tab="medications">Medications</button>
+                <button class="tab-btn" data-tab="orders">Orders</button>
+                <button class="tab-btn" data-tab="profile">Profile</button>
+            </div>
+            
+            <div class="tab-content">
+                <!-- Dashboard Tab -->
+                <div class="tab-pane active" id="dashboard-tab">
+                    <div class="dashboard-grid">
+                        <div class="card expandable-card" id="activePrescriptionsCard" tabindex="0" aria-label="Active Prescriptions Card">
+                            <div class="card-header">
+                                <h3 class="card-title">Active Prescriptions</h3>
+                                <div class="card-icon" aria-hidden="true">
+                                    <i class="fas fa-prescription"></i>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p>You have <span id="activePrescriptionCount2">2</span> active prescriptions</p>
+                                <div class="prescription-list" id="prescriptionList">
+                                    <!-- Prescriptions will be loaded here -->
+                                </div>
+                                <div class="loading-container" style="display: none;">
+                                    <div class="loading-spinner"></div>
+                                    <p>Loading prescriptions...</p>
+                                </div>
+                                <div class="error-container" style="display: none;">
+                                    <p class="error-message"></p>
+                                    <button class="retry-button btn btn-outline">
+                                        <i class="fas fa-sync"></i> Retry
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-outline" id="viewAllPrescriptions" aria-label="View all prescriptions">View All</button>
+                            </div>
+                        </div>
+                        
+                        <div class="card expandable-card" id="upcomingRefillsCard" tabindex="0" aria-label="Upcoming Refills Card">
+                            <div class="card-header">
+                                <h3 class="card-title">Upcoming Refills</h3>
+                                <div class="card-icon" aria-hidden="true">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p>You have <span id="upcomingRefillCount2">1</span> upcoming refill</p>
+                                <div class="refill-list" id="refillList">
+                                    <!-- Refills will be loaded here -->
+                                </div>
+                                <div class="loading-container" style="display: none;">
+                                    <div class="loading-spinner"></div>
+                                    <p>Loading refills...</p>
+                                </div>
+                                <div class="error-container" style="display: none;">
+                                    <p class="error-message"></p>
+                                    <button class="retry-button btn btn-outline">
+                                        <i class="fas fa-sync"></i> Retry
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-outline" id="viewRefillDetails" aria-label="View refill details">View Details</button>
+                            </div>
+                        </div>
+                        
+                        <div class="card expandable-card" id="recentOrdersCard" tabindex="0" aria-label="Recent Orders Card">
+                            <div class="card-header">
+                                <h3 class="card-title">Recent Orders</h3>
+                                <div class="card-icon" aria-hidden="true">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p>You have <span id="recentOrderCount2">3</span> recent orders</p>
+                                <div class="order-list" id="orderList">
+                                    <!-- Orders will be loaded here -->
+                                </div>
+                                <div class="loading-container" style="display: none;">
+                                    <div class="loading-spinner"></div>
+                                    <p>Loading orders...</p>
+                                </div>
+                                <div class="error-container" style="display: none;">
+                                    <p class="error-message"></p>
+                                    <button class="retry-button btn btn-outline">
+                                        <i class="fas fa-sync"></i> Retry
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-outline" id="viewOrderHistory" aria-label="View order history">View History</button>
+                            </div>
+                        </div>
+                        
+                        <div class="card expandable-card" id="healthRemindersCard" tabindex="0" aria-label="Health Reminders Card">
+                            <div class="card-header">
+                                <h3 class="card-title">Health Reminders</h3>
+                                <div class="card-icon" aria-hidden="true">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p>You have <span id="reminderCount">2</span> medication reminders set</p>
+                                <div class="reminder-list" id="reminderList">
+                                    <!-- Reminders will be loaded here -->
+                                </div>
+                                <div class="loading-container" style="display: none;">
+                                    <div class="loading-spinner"></div>
+                                    <p>Loading reminders...</p>
+                                </div>
+                                <div class="error-container" style="display: none;">
+                                    <p class="error-message"></p>
+                                    <button class="retry-button btn btn-outline">
+                                        <i class="fas fa-sync"></i> Retry
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-outline" id="manageReminders" aria-label="Manage reminders">Manage Reminders</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Prescriptions Tab -->
+                <div class="tab-pane" id="prescriptions-tab">
+                    <div class="section-header">
+    <h2>Your Prescriptions</h2>
+    <div class="action-buttons">
+        <button class="btn btn-outline" aria-label="Filter prescriptions"><i class="fas fa-filter"></i> Filter</button>
+        <button class="btn btn-primary" aria-label="Request new prescription"><i class="fas fa-plus"></i> Request New</button>
+    </div>
+</div>
+                    
+                    <div class="prescription-filters" role="tablist" aria-label="Prescription Filters">
+    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" tabindex="0">All</button>
+    <button class="filter-btn" data-filter="active" role="tab" aria-selected="false" tabindex="0">Active</button>
+    <button class="filter-btn" data-filter="pending" role="tab" aria-selected="false" tabindex="0">Pending</button>
+    <button class="filter-btn" data-filter="expired" role="tab" aria-selected="false" tabindex="0">Expired</button>
+</div>
+                    
+                    <div class="prescription-table-container">
+                        <table class="data-table" id="prescriptionsTable" aria-label="Prescriptions Table">
+    <thead>
+        <tr>
+            <th scope="col">Medication</th>
+            <th scope="col">Dosage</th>
+            <th scope="col">Prescribed By</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody id="prescriptionsTableBody">
+        <!-- Prescription data will be loaded here -->
+    </tbody>
+</table>
+                    </div>
+                </div>
+                
+                <!-- Medications Tab -->
+                <div class="tab-pane" id="medications-tab">
+                    <div class="section-header">
+    <h2>Your Medications</h2>
+    <div class="action-buttons">
+        <button class="btn btn-outline" aria-label="Filter medications"><i class="fas fa-filter"></i> Filter</button>
+        <button class="btn btn-primary" aria-label="Search medications"><i class="fas fa-search"></i> Search Medications</button>
+    </div>
+</div>
+                    
+                    <div class="medication-grid" id="medicationGrid" aria-label="Medication List" tabindex="0">
+    <!-- Medication cards will be loaded here -->
+    <!-- Example card for improved accessibility and polish -->
+    <!--
+    <div class="medication-card" tabindex="0" aria-label="Medication: Lisinopril, 10mg daily">
+        <div class="medication-icon" aria-hidden="true">
+            <i class="fas fa-capsules"></i>
+        </div>
+        <div class="medication-info">
+            <h4 class="medication-name">Lisinopril</h4>
+            <p class="medication-dosage">10mg, daily</p>
+            <p class="medication-status">Active</p>
+        </div>
+        <div class="medication-actions">
+            <button class="btn btn-outline btn-sm" aria-label="View details for Lisinopril"><i class="fas fa-eye"></i></button>
+            <button class="btn btn-outline btn-sm" aria-label="Request refill for Lisinopril"><i class="fas fa-sync-alt"></i></button>
+        </div>
+    </div>
+    -->
+</div>
+                </div>
+                
+                <!-- Orders Tab -->
+                <div class="tab-pane" id="orders-tab">
+                    <div class="section-header">
+    <h2>Your Orders</h2>
+    <div class="action-buttons">
+        <button class="btn btn-outline" aria-label="Filter orders"><i class="fas fa-filter"></i> Filter</button>
+        <button class="btn btn-primary" aria-label="Create new order"><i class="fas fa-plus"></i> New Order</button>
+    </div>
+</div>
+                    
+                    <div class="order-filters" role="tablist" aria-label="Order Filters">
+    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" tabindex="0">All Orders</button>
+    <button class="filter-btn" data-filter="processing" role="tab" aria-selected="false" tabindex="0">Processing</button>
+    <button class="filter-btn" data-filter="shipped" role="tab" aria-selected="false" tabindex="0">Shipped</button>
+    <button class="filter-btn" data-filter="delivered" role="tab" aria-selected="false" tabindex="0">Delivered</button>
+</div>
+                    
+                    <div class="order-list-container" id="orderListContainer" aria-label="Order List" tabindex="0">
+    <!-- Order items will be loaded here -->
+    <!-- Example order card for improved accessibility and polish -->
+    <!--
+    <div class="order-card" tabindex="0" aria-label="Order #12345, Delivered, April 2025">
+        <div class="order-info">
+            <h4 class="order-id">Order #12345</h4>
+            <p class="order-status delivered">Delivered</p>
+            <p class="order-date">April 15, 2025</p>
+        </div>
+        <div class="order-actions">
+            <button class="btn btn-outline btn-sm" aria-label="View details for order 12345"><i class="fas fa-eye"></i></button>
+            <button class="btn btn-outline btn-sm" aria-label="Reorder items from order 12345"><i class="fas fa-sync-alt"></i></button>
+        </div>
+    </div>
+    -->
+</div>
+                </div>
+                
+                <!-- Profile Tab -->
+                <div class="tab-pane" id="profile-tab">
+                    <div class="profile-container">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <div class="avatar large" id="profileAvatar">T</div>
+                                <button class="change-avatar-btn"><i class="fas fa-camera"></i></button>
+                            </div>
+                            <div class="profile-info">
+                                <h2 id="profileName">Test User</h2>
+                                <p id="profileEmail">test@example.com</p>
+                                <p class="profile-since">Member since: <span id="memberSince">April 2023</span></p>
+                            </div>
+                            <div class="profile-actions">
+                                <button class="btn btn-outline"><i class="fas fa-edit"></i> Edit Profile</button>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-tabs" role="tablist" aria-label="Profile Sections">
+    <button class="profile-tab-btn active" data-tab="personal" role="tab" aria-selected="true" tabindex="0">Personal Information</button>
+    <button class="profile-tab-btn" data-tab="medical" role="tab" aria-selected="false" tabindex="0">Medical Information</button>
+    <button class="profile-tab-btn" data-tab="insurance" role="tab" aria-selected="false" tabindex="0">Insurance</button>
+    <button class="profile-tab-btn" data-tab="security" role="tab" aria-selected="false" tabindex="0">Security</button>
+</div>
+                        
+                        <div class="profile-tab-content">
+                            <div class="profile-tab-pane active" id="personal-tab">
+                                <div class="profile-section">
+                                    <h3>Personal Information</h3>
+                                    <div class="profile-form" aria-label="Personal Information Form">
+    <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" value="Test User" disabled aria-label="Full Name">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" value="test@example.com" disabled aria-label="Email">
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" value="(555) 123-4567" disabled aria-label="Phone Number">
+    </div>
+    <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" value="1990-01-01" disabled aria-label="Date of Birth">
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <textarea id="address" disabled aria-label="Address">123 Main St, Anytown, USA 12345</textarea>
+    </div>
+</div>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-tab-pane" id="medical-tab">
+                                <div class="profile-section">
+                                    <h3>Medical Information</h3>
+                                    <div class="profile-form" aria-label="Medical Information Form">
+    <div class="form-group">
+        <label for="allergiesList">Allergies</label>
+        <div class="tag-list" id="allergiesList" aria-label="Allergies">
+            <span class="tag">Penicillin</span>
+            <span class="tag">Peanuts</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="conditionsList">Chronic Conditions</label>
+        <div class="tag-list" id="conditionsList" aria-label="Chronic Conditions">
+            <span class="tag">Hypertension</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="physician">Primary Physician</label>
+        <input type="text" id="physician" value="Dr. Jane Smith" disabled aria-label="Primary Physician">
+    </div>
+    <div class="form-group">
+        <label for="bloodType">Blood Type</label>
+        <input type="text" id="bloodType" value="O+" disabled aria-label="Blood Type">
+    </div>
+</div>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-tab-pane" id="insurance-tab">
+                                <div class="profile-section">
+                                    <h3>Insurance Information</h3>
+                                    <div class="profile-form" aria-label="Insurance Information Form">
+    <div class="form-group">
+        <label for="insuranceProvider">Insurance Provider</label>
+        <input type="text" id="insuranceProvider" value="HealthPlus Insurance" disabled aria-label="Insurance Provider">
+    </div>
+    <div class="form-group">
+        <label for="policyNumber">Policy Number</label>
+        <input type="text" id="policyNumber" value="HP123456789" disabled aria-label="Policy Number">
+    </div>
+    <div class="form-group">
+        <label for="groupNumber">Group Number</label>
+        <input type="text" id="groupNumber" value="GRP987654" disabled aria-label="Group Number">
+    </div>
+    <div class="form-group">
+        <label for="coverageStart">Coverage Start Date</label>
+        <input type="date" id="coverageStart" value="2023-01-01" disabled aria-label="Coverage Start Date">
+    </div>
+</div>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-tab-pane" id="security-tab">
+                                <div class="profile-section">
+                                    <h3>Security Settings</h3>
+                                    <div class="profile-form" aria-label="Security Settings Form">
+    <div class="form-group">
+        <label for="passwordField">Password</label>
+        <input type="password" id="passwordField" value="********" disabled aria-label="Password">
+        <button class="btn btn-outline btn-sm" aria-label="Change Password">Change Password</button>
+    </div>
+    <div class="form-group">
+        <label for="twoFactorToggle">Two-Factor Authentication</label>
+        <div class="toggle-switch">
+            <input type="checkbox" id="twoFactorToggle" aria-label="Enable Two-Factor Authentication">
+            <label for="twoFactorToggle"></label>
+            <span>Disabled</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="securityQuestions">Security Questions</label>
+        <button class="btn btn-outline btn-sm" id="securityQuestions" aria-label="Manage Security Questions">Manage Security Questions</button>
+    </div>
+    <div class="form-group">
+        <label for="loginHistory">Login History</label>
+        <button class="btn btn-outline btn-sm" id="loginHistory" aria-label="View Login History">View Login History</button>
+    </div>
+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo small">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="#1a73e8" />
+                        <circle cx="50" cy="50" r="38" fill="white" />
+                        <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8" />
+                        <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8" />
+                    </svg>
+                </div>
+                <span>HealthGuard Elite</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Help Center</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2025 HealthGuard Elite. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modal Templates -->
+    <div class="modal" id="prescriptionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Prescription Details</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="prescriptionModalBody">
+                <!-- Prescription details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline modal-close-btn">Close</button>
+                <button class="btn btn-primary">Request Refill</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Prevent console noise from header.js -->
+    <script>
+        // Create empty auth-buttons element to prevent error in header.js
+        if (!document.querySelector('.auth-buttons')) {
+            const dummyAuthButtons = document.createElement('div');
+            dummyAuthButtons.className = 'auth-buttons';
+            dummyAuthButtons.style.display = 'none';
+            document.body.appendChild(dummyAuthButtons);
+        }
+        
+        // Store original console methods first to avoid recursion
+        const originalWarn = console.warn;
+        const originalError = console.error;
+        
+        // Suppress certain warnings
+        console.warn = function() {
+            const message = arguments[0];
+            if (message && typeof message === 'string' && 
+                (message.includes('Password field') || 
+                 message.includes('API endpoint not available'))) {
+                // Suppress specific warnings
+                return;
+            }
+            // Pass through other warnings
+            return originalWarn.apply(console, arguments);
+        };
+        
+        // Suppress certain errors
+        console.error = function() {
+            const message = arguments[0];
+            if (message && typeof message === 'string' && 
+                (message.includes('Failed to load resource') || 
+                 message.includes('API endpoint not available'))) {
+                // Suppress specific errors
+                return;
+            }
+            // Pass through other errors
+            return originalError.apply(console, arguments);
+        };
+    </script>
+    
+    <!-- Admin API Service for handling API requests with fallbacks -->
+    <script src="../JS/admin-api-service.js"></script>
+    
+    <!-- Dashboard main script -->
+    <script src="../JS/dashboard.js"></script>
+    
+    <!-- Header integration -->
+    <script type="module" src="../JS/header.js"></script>
+    
+    <script>
+        // Initialize dashboard with admin service if available
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Dashboard fully loaded');
+            
+            // Set up request throttling to prevent 429 errors
+            const requestThrottleMap = new Map();
+            const throttleTime = 1000; // 1 second between requests to same endpoint
+            
+            // Override fetch to handle all API errors gracefully
+            const originalFetch = window.fetch;
+            window.fetch = function(url, options) {
+                // Skip logging for some requests to reduce noise
+                if (!url.includes('favicon.ico')) {
+                    console.log(`Fetch request to: ${url}`);
+                }
+                
+                // Only intercept API requests
+                if (url.includes('localhost:5000/api/')) {
+                    // Extract endpoint for throttling
+                    const endpoint = url.split('localhost:5000/api/')[1].split('?')[0];
+                    
+                    // Check if we need to throttle this request
+                    if (requestThrottleMap.has(endpoint)) {
+                        const lastRequestTime = requestThrottleMap.get(endpoint);
+                        const now = Date.now();
+                        const elapsed = now - lastRequestTime;
+                        
+                        if (elapsed < throttleTime) {
+                            console.warn(`Rate limiting request to ${endpoint}, returning cached response`);
+                            // Return a cached response instead of making a request
+                            return Promise.resolve(new Response(JSON.stringify({
+                                message: "Request throttled to prevent rate limiting",
+                                data: null
+                            }), {
+                                status: 200,
+                                headers: { 'Content-Type': 'application/json' }
+                            }));
+                        }
+                    }
+                    
+                    // Update the throttle map
+                    requestThrottleMap.set(endpoint, Date.now());
+                    
+                    // Check if we can access the server at all
+                    // We'll use a simple check to avoid adding more HTTP requests
+                    const serverConnectionKey = 'server_connection_status';
+                    const serverLastCheck = 'server_last_check_time';
+                    const checkInterval = 5000; // 5 seconds
+                    
+                    const lastCheckTime = parseInt(sessionStorage.getItem(serverLastCheck) || '0');
+                    const now = Date.now();
+                    const serverStatus = sessionStorage.getItem(serverConnectionKey);
+                    
+                    // If we've checked recently and know server is down, return mock immediately
+                    if (serverStatus === 'down' && (now - lastCheckTime) < checkInterval) {
+                        console.warn(`Using cached status: API server is down (checked ${Math.round((now - lastCheckTime)/1000)}s ago)`);
+                        return Promise.resolve(new Response(JSON.stringify({ error: 'API unavailable' }), {
+                            status: 404,
+                            statusText: 'API unavailable',
+                            headers: { 'Content-Type': 'application/json' }
+                        }));
+                    }
+                    
+                    // We should check server status
+                    return new Promise((resolve) => {
+                        // Only do the HEAD check if we haven't checked recently
+                        if ((now - lastCheckTime) > checkInterval) {
+                            // Try to reach the API server with a simple HEAD request
+                            const testRequest = new XMLHttpRequest();
+                            testRequest.open('HEAD', 'http://localhost:5000/api', true);
+                            testRequest.timeout = 2000; // 2 second timeout
+                            
+                            testRequest.onreadystatechange = function() {
+                                if (testRequest.readyState === 4) {
+                                    sessionStorage.setItem(serverLastCheck, now.toString());
+                                    
+                                    if (testRequest.status >= 200 && testRequest.status < 400) {
+                                        // API is reachable
+                                        sessionStorage.setItem(serverConnectionKey, 'up');
+                                        console.log('API server is reachable');
+                                        resolve(originalFetch(url, options).catch(err => {
+                                            // Handle fetch errors gracefully
+                                            console.warn(`Error fetching ${endpoint}: ${err.message}`);
+                                            return new Response(JSON.stringify({ error: err.message }), {
+                                                status: 500,
+                                                headers: { 'Content-Type': 'application/json' }
+                                            });
+                                        }));
+                                    } else {
+                                        // API is unreachable
+                                        sessionStorage.setItem(serverConnectionKey, 'down');
+                                        console.warn(`API server is unreachable (status: ${testRequest.status})`);
+                                        resolve(new Response(JSON.stringify({ error: 'API unavailable' }), {
+                                            status: 404,
+                                            headers: { 'Content-Type': 'application/json' }
+                                        }));
+                                    }
+                                }
+                            };
+                            
+                            testRequest.onerror = function() {
+                                // Network error
+                                sessionStorage.setItem(serverConnectionKey, 'down');
+                                sessionStorage.setItem(serverLastCheck, now.toString());
+                                console.warn('API server connection error');
+                                resolve(new Response(JSON.stringify({ error: 'API connection error' }), {
+                                    status: 404,
+                                    headers: { 'Content-Type': 'application/json' }
+                                }));
+                            };
+                            
+                            testRequest.ontimeout = function() {
+                                // Timeout
+                                sessionStorage.setItem(serverConnectionKey, 'down');
+                                sessionStorage.setItem(serverLastCheck, now.toString());
+                                console.warn('API server timeout');
+                                resolve(new Response(JSON.stringify({ error: 'API timeout' }), {
+                                    status: 404,
+                                    headers: { 'Content-Type': 'application/json' }
+                                }));
+                            };
+                            
+                            // Send the test request
+                            testRequest.send();
+                        } else {
+                            // Use the cached server status
+                            if (serverStatus === 'up') {
+                                // Server was up on last check, try the fetch
+                                resolve(originalFetch(url, options).catch(err => {
+                                    // Handle fetch errors gracefully
+                                    console.warn(`Error fetching ${endpoint}: ${err.message}`);
+                                    return new Response(JSON.stringify({ error: err.message }), {
+                                        status: 500,
+                                        headers: { 'Content-Type': 'application/json' }
+                                    });
+                                }));
+                            } else {
+                                // Server was down on last check
+                                console.warn(`Using cached status: API server is down (checked ${Math.round((now - lastCheckTime)/1000)}s ago)`);
+                                resolve(new Response(JSON.stringify({ error: 'API unavailable' }), {
+                                    status: 404,
+                                    headers: { 'Content-Type': 'application/json' }
+                                }));
+                            }
+                        }
+                    });
+                }
+                
+                // For non-API requests, use the original fetch
+                return originalFetch(url, options);
+            };
+            
+            // Show connection status
+            const notificationsArea = document.querySelector('.notifications-area');
+            if (notificationsArea) {
+                // Check if we have a valid token
+                const token = localStorage.getItem('authToken') || localStorage.getItem('token');
+                if (token) {
+                    const toast = document.createElement('div');
+                    toast.className = 'toast info';
+                    toast.innerHTML = `
+                        <i class="fas fa-info-circle"></i>
+                        <span>User dashboard loaded. Data will be retrieved from the server when available.</span>
+                        <button class="close-toast">&times;</button>
+                    `;
+                    notificationsArea.appendChild(toast);
+                    
+                    // Remove toast after 4 seconds
+                    setTimeout(() => {
+                        toast.classList.add('fade-out');
+                        setTimeout(() => toast.remove(), 500);
+                    }, 4000);
+                    
+                    // Close button
+                    toast.querySelector('.close-toast').addEventListener('click', () => {
+                        toast.remove();
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Consultation - E-Pharma</title>
+    <link rel="stylesheet" href="../css/consultation.css">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <script src="../JS/header-fix.js"></script>
+    <script src="../JS/user-auth-final.js"></script>
+    <script src="../JS/navbar-role-control.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 100 100" width="40" height="40">
+                                <circle cx="50" cy="50" r="48" fill="#1a73e8"></circle>
+                                <circle cx="50" cy="50" r="38" fill="white"></circle>
+                                <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8"></rect>
+                                <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8"></rect>
+                            </svg>
+                        </div>
+                        <h1>E-Pharma</h1>
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <button class="mobile-menu-btn" aria-label="Toggle menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-list">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/medicines.html">Medicines</a></li>
+                        <li><a href="/services.html">Services</a></li>
+                        <li><a href="/locations.html">Locations</a></li>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="auth-buttons"></div>
+                    <a href="/login.html" class="btn btn-outline">Login</a>
+                    <a href="/register.html" class="btn btn-primary">Sign Up</a>
+                    <button class="cart-btn" aria-label="Shopping cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Online Consultation</h2>
+            <p>Connect with our licensed pharmacists for personalized health advice</p>
+        </div>
+    </section>
+
+    <section class="consultation-section">
+        <div class="container">
+            <div class="consultation-grid">
+                <div class="consultation-info">
+                    <h3>How It Works</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Book an Appointment</h4>
+                                <p>Choose a convenient time slot to speak with one of our licensed pharmacists.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Prepare Your Questions</h4>
+                                <p>Make a list of your health concerns or medication questions before the consultation.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Join the Consultation</h4>
+                                <p>Connect via video call or phone at your scheduled time for personalized advice.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Receive Follow-up</h4>
+                                <p>Get a summary of recommendations and any necessary prescriptions after your consultation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="consultation-benefits">
+                        <h3>Benefits of Online Consultation</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Convenient access to healthcare professionals from home</li>
+                            <li><i class="fas fa-check-circle"></i> Personalized medication advice and recommendations</li>
+                            <li><i class="fas fa-check-circle"></i> Guidance on managing chronic conditions</li>
+                            <li><i class="fas fa-check-circle"></i> Information about potential drug interactions</li>
+                            <li><i class="fas fa-check-circle"></i> Help with understanding prescription instructions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="consultation-form-container">
+                    <h3>Book a Consultation</h3>
+                    <form id="consultationForm" class="consultation-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="consultationType">Consultation Type *</label>
+                            <select id="consultationType" name="consultationType" required>
+                                <option value="">Select consultation type</option>
+                                <option value="medication-review">Medication Review</option>
+                                <option value="health-advice">General Health Advice</option>
+                                <option value="chronic-condition">Chronic Condition Management</option>
+                                <option value="prescription-guidance">Prescription Guidance</option>
+                                <option value="drug-interaction">Drug Interaction Check</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Date *</label>
+                            <input type="date" id="preferredDate" name="preferredDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="preferredTime">Preferred Time *</label>
+                            <select id="preferredTime" name="preferredTime" required>
+                                <option value="">Select preferred time</option>
+                                <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
+                                <option value="afternoon">Afternoon (12:00 PM - 4:00 PM)</option>
+                                <option value="evening">Evening (4:00 PM - 8:00 PM)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="consultationMethod">Consultation Method *</label>
+                            <select id="consultationMethod" name="consultationMethod" required>
+                                <option value="">Select method</option>
+                                <option value="video">Video Call</option>
+                                <option value="phone">Phone Call</option>
+                                <option value="chat">Text Chat</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="concerns">Health Concerns/Questions *</label>
+                            <textarea id="concerns" name="concerns" rows="5" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                                <label for="privacy-policy">I agree to the <a href="/privacy.html">Privacy Policy</a> and consent to having my data processed.</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Book Consultation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pharmacists-section">
+        <div class="container">
+            <h3>Our Pharmacists</h3>
+            <p class="section-description">Meet our team of experienced and licensed pharmacists ready to assist you</p>
+            
+            <div class="pharmacists-grid">
+                <div class="pharmacist-card">
+                    <div class="pharmacist-image">
+                        <img src="https://via.placeholder.com/300" alt="Dr. Sarah Ahmed">
+                    </div>
+                    <h4>Dr. Sarah Ahmed</h4>
+                    <p class="pharmacist-title">Clinical Pharmacist</p>
+                    <p class="pharmacist-specialties">Specialties: Medication Therapy Management, Chronic Disease Management</p>
+                    <p class="pharmacist-experience">Experience: 12 years</p>
+                    <a href="#" class="btn btn-outline">View Profile</a>
+                </div>
+                
+                <div class="pharmacist-card">
+                    <div class="pharmacist-image">
+                        <img src="https://via.placeholder.com/300" alt="Dr. Michael Chen">
+                    </div>
+                    <h4>Dr. Michael Chen</h4>
+                    <p class="pharmacist-title">Pharmacotherapy Specialist</p>
+                    <p class="pharmacist-specialties">Specialties: Geriatric Care, Drug Interactions</p>
+                    <p class="pharmacist-experience">Experience: 8 years</p>
+                    <a href="#" class="btn btn-outline">View Profile</a>
+                </div>
+                
+                <div class="pharmacist-card">
+                    <div class="pharmacist-image">
+                        <img src="https://via.placeholder.com/300" alt="Dr. Layla Mahmoud">
+                    </div>
+                    <h4>Dr. Layla Mahmoud</h4>
+                    <p class="pharmacist-title">Ambulatory Care Pharmacist</p>
+                    <p class="pharmacist-specialties">Specialties: Diabetes Management, Cardiovascular Health</p>
+                    <p class="pharmacist-experience">Experience: 10 years</p>
+                    <a href="#" class="btn btn-outline">View Profile</a>
+                </div>
+                
+                <div class="pharmacist-card">
+                    <div class="pharmacist-image">
+                        <img src="https://via.placeholder.com/300" alt="Dr. James Wilson">
+                    </div>
+                    <h4>Dr. James Wilson</h4>
+                    <p class="pharmacist-title">Psychiatric Pharmacist</p>
+                    <p class="pharmacist-specialties">Specialties: Mental Health Medications, Substance Use Disorders</p>
+                    <p class="pharmacist-experience">Experience: 15 years</p>
+                    <a href="#" class="btn btn-outline">View Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How much does an online consultation cost?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our standard consultation fee is $30 for a 20-minute session. However, if you're a registered member with an active prescription, your first consultation each month is complimentary.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Can the pharmacist prescribe medication?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our pharmacists can provide recommendations, but they cannot prescribe new medications. They can, however, help manage existing prescriptions, suggest over-the-counter options, and coordinate with your doctor for prescription needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How long does a consultation typically last?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Standard consultations are scheduled for 20 minutes. For more complex health concerns, we offer extended 40-minute sessions at an additional cost.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What if I need to cancel or reschedule?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can cancel or reschedule your appointment up to 4 hours before the scheduled time without any penalty. For cancellations made less than 4 hours in advance, a 50% fee may apply.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 100 100" width="40" height="40">
+                                <circle cx="50" cy="50" r="48" fill="#1a73e8"></circle>
+                                <circle cx="50" cy="50" r="38" fill="white"></circle>
+                                <rect x="47" y="20" width="6" height="60" rx="2" fill="#1a73e8"></rect>
+                                <rect x="20" y="47" width="60" height="6" rx="2" fill="#1a73e8"></rect>
+                            </svg>
+                        </div>
+                        <h2>E-Pharma</h2>
+                    </div>
+                    <p>Your trusted partner for all your pharmaceutical needs. We provide quality medications, healthcare products, and professional services to improve your wellbeing.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/medicines.html">Medicines</a></li>
+                        <li><a href="/skincare.html">Skincare</a></li>
+                        <li><a href="/services.html">Services</a></li>
+                        <li><a href="/locations.html">Locations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Support</h3>
+                    <ul>
+                        <li><a href="/help.html">Help Center</a></li>
+                        <li><a href="/contact.html">Contact Us</a></li>
+                        <li><a href="/faq.html">FAQ</a></li>
+                        <li><a href="/shipping.html">Shipping Policy</a></li>
+                        <li><a href="/returns.html">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <address>
+                        <p>123 Pharmacy Street<br>Medical District, MD 12345<br>United States</p>
+                        <p><strong>Phone:</strong> (123) 456-7890</p>
+                        <p><strong>Email:</strong> info@epharma.com</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2023</span> E-Pharma. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                    <a href="/sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../JS/script.js"></script>
+    <script src="../JS/consultation.js"></script>
+    <script type="module" src="../JS/header.js"></script>
+</body>
+</html>

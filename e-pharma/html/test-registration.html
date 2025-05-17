@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Registration</title>
+
+    <script src="../JS/header-fix.js"></script>
+</head>
+<body>
+    <h2>E-Pharmacy Registration Test</h2>
+    <div id="result"></div>
+
+    <script>
+        async function testRegistration() {
+            try {
+                // First, get CSRF token
+                const initResponse = await fetch('http://localhost:5000/api', {
+                    credentials: 'include'
+                });
+                
+                // Create test user data
+                const timestamp = Date.now();
+                const userData = {
+                    firstName: "Test",
+                    lastName: "User",
+                    email: `test${timestamp}@example.com`,
+                    password: "TestPass123!",
+                    username: `testuser${timestamp}`,
+                    nationalNumber: "1234567890",
+                    phone: "1234567890", // Changed to match the 10-digit format
+                    gender: "male",
+                    securityQuestion: "What was your first pet's name?",
+                    securityAnswer: "Spot",
+                    role: "patient"
+                };
+
+                // Get CSRF token from cookie
+                const csrfToken = document.cookie
+                    .split('; ')
+                    .find(row => row.startsWith('_csrf='))
+                    ?.split('=')[1];
+
+                console.log('Using CSRF Token:', csrfToken);
+
+                // Make registration request
+                const regResponse = await fetch('http://localhost:5000/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': csrfToken
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify(userData)
+                });
+
+                const result = await regResponse.json(); // This line parses the JSON body of the 400 response
+                document.getElementById('result').innerHTML = `
+                    <h3>Registration ${result.success ? 'Successful' : 'Failed'}</h3>
+                    <pre>${JSON.stringify(result, null, 2)}</pre> 
+                    // ^ The detailed error message from the server should be displayed here on your webpage.
+                `;
+            } catch (error) {
+                document.getElementById('result').innerHTML = `
+                    <h3>Error</h3>
+                    <pre>${error.message}</pre>
+                `;
+            }
+        }
+
+        // Run the test
+        testRegistration();
+    </script>
+</body>
+</html>

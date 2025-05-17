@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - E-Pharma</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Essential authentication scripts first -->
+    <script src="../JS/header-fix.js"></script>
+    <script src="../JS/jwt-bridge.js"></script>
+    <script src="../JS/user-auth-final.js"></script>
+    
+    <style>
+        .orders-page {
+            padding: 2rem 0;
+        }
+        
+        .orders-list {
+            margin-top: 2rem;
+        }
+        
+        .order-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .order-header {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .order-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .status-completed {
+            background-color: #e6f7e6;
+            color: #28a745;
+        }
+        
+        .status-processing {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-shipped {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+        
+        .order-body {
+            padding: 1rem;
+        }
+        
+        .order-items {
+            margin-bottom: 1rem;
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .order-totals {
+            border-top: 1px solid #e9ecef;
+            padding-top: 1rem;
+            font-weight: 500;
+        }
+        
+        .order-actions {
+            padding: 1rem;
+            border-top: 1px solid #e9ecef;
+            text-align: right;
+        }
+        
+        .empty-orders {
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .empty-orders i {
+            font-size: 3rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be added dynamically -->
+    <div id="header-placeholder"></div>
+
+    <main class="orders-page">
+        <div class="container">
+            <h1>My Orders</h1>
+            
+            <div id="orders-container" class="orders-list">
+                <!-- Orders will be populated by JavaScript -->
+                <div class="loading">
+                    <p>Loading your orders...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be added dynamically -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../JS/header.js"></script>
+    
+    <!-- Orders script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Orders page loaded');
+        
+        // Check authentication
+        const authToken = localStorage.getItem('e_pharma_auth_token') || 
+                         localStorage.getItem('token') || 
+                         localStorage.getItem('jwt') || '';
+        
+        const ordersContainer = document.getElementById('orders-container');
+        
+        if (!authToken) {
+            console.warn('No authentication token found, showing guest message');
+            ordersContainer.innerHTML = `
+                <div class="empty-orders">
+                    <i class="fas fa-user-lock"></i>
+                    <h2>Please Log In</h2>
+                    <p>You need to be logged in to view your order history.</p>
+                    <a href="login.html" class="button primary">Log In</a>
+                </div>
+            `;
+            return;
+        }
+        
+        // Try to load orders from API
+        loadOrders();
+        
+        async function loadOrders() {
+            try {
+                // Show loading indicator
+                ordersContainer.innerHTML = `
+                    <div class="loading" style="text-align: center; padding: 2rem;">
+                        <div class="spinner" style="border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+                        <p>Loading your orders...</p>
+                    </div>
+                    <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+                `;
+                
+                // Get the proper JWT token from localStorage
+                // Based on your server logs, we need to use the correct token format
+                const jwtToken = localStorage.getItem('jwt') || 
+                                localStorage.getItem('e_pharma_jwt') || 
+                                '';
+                
+                // If no proper JWT token is found, use local data immediately
+                if (!jwtToken || jwtToken.startsWith('cookie_auth_token_')) {
+                    console.log('No valid JWT token found, using local data');
+                    const localOrders = getLocalOrders();
+                    displayOrders(localOrders);
+                    return;
+                }
+                
+                // Determine which API endpoints to try based on your existing backend structure
+                const apiEndpoints = [
+                    // Local development endpoints - match your server structure
+                    'http://localhost:5000/api/orders/myorders',
+                    'http://localhost:3000/api/orders/myorders',
+                    
+                    // Fallback endpoints in case the route structure changes
+                    'http://localhost:5000/api/orders',
+                    'http://localhost:3000/api/orders',
+                    
+                    // Production endpoints
+                    'https://api.e-pharma.com/api/orders/myorders'
+                ];
+                
+                // Try each endpoint until one works
+                let apiData = null;
+                let apiSuccess = false;
+                
+                // First check if we have a previously successful endpoint
+                const lastSuccessfulEndpoint = localStorage.getItem('last_successful_api');
+                let endpointsInOrder = [...apiEndpoints];
+                
+                // If we have a previously successful endpoint, try it first
+                if (lastSuccessfulEndpoint && apiEndpoints.includes(lastSuccessfulEndpoint)) {
+                    endpointsInOrder = [
+                        lastSuccessfulEndpoint,
+                        ...apiEndpoints.filter(url => url !== lastSuccessfulEndpoint)
+                    ];
+                }
+                
+                // Only show one console message about API attempts
+                console.log('Attempting to connect to backend API...');
+                
+                for (const url of endpointsInOrder) {
+                    try {
+                        // Use a timeout to prevent long-hanging requests
+                        const controller = new AbortController();
+                        const timeoutId = setTimeout(() => controller.abort(), 2000); // 2 second timeout
+                        
+                        console.log(`Trying endpoint: ${url}`);
+                        
+                        const response = await fetch(url, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${jwtToken}`
+                            },
+                            signal: controller.signal
+                        });
+                        
+                        clearTimeout(timeoutId);
+                        
+                        if (response.ok) {
+                            apiData = await response.json();
+                            console.log(`Successfully connected to ${url}`);
+                            
+                            // Save the successful endpoint for future use
+                            localStorage.setItem('last_successful_api', url);
+                            
+                            // Mark as successful and break the loop
+                            apiSuccess = true;
+                            break;
+                        } else {
+                            console.log(`API endpoint ${url} returned status: ${response.status}`);
+                        }
+                    } catch (fetchError) {
+                        console.log(`Error with endpoint ${url}:`, fetchError.message);
+                        // Continue to the next endpoint
+                    }
+                }
+                
+                // Get local orders as fallback
+                const localOrders = getLocalOrders();
+                
+                // Decide which data to display
+                if (apiSuccess && apiData) {
+                    // If API call succeeded, merge with local data
+                    const mergedOrders = mergeOrdersData(apiData, localOrders);
+                    displayOrders(mergedOrders);
+                    
+                    // Save merged data to localStorage for future use
+                    localStorage.setItem('orders', JSON.stringify(mergedOrders));
+                } else {
+                    // If all API calls failed, use local data
+                    console.log('Using local orders data');
+                    displayOrders(localOrders);
+                }
+            } catch (error) {
+                console.error('Critical error loading orders:', error);
+                
+                // Try to get local orders as a last resort
+                try {
+                    const localOrders = getLocalOrders();
+                    if (localOrders && localOrders.length > 0) {
+                        displayOrders(localOrders);
+                    } else {
+                        throw new Error('No local orders available');
+                    }
+                } catch (e) {
+                    // Show error message if everything fails
+                    ordersContainer.innerHTML = `
+                        <div class="empty-orders">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <h2>Error Loading Orders</h2>
+                            <p>There was a problem loading your orders. Please try again later.</p>
+                            <a href="home2.html" class="button primary">Return to Home</a>
+                        </div>
+                    `;
+                }
+            }
+        }
+        
+        function getLocalOrders() {
+            // Get the last order from localStorage
+            try {
+                const lastOrder = JSON.parse(localStorage.getItem('last_order') || '{}');
+                const savedOrders = JSON.parse(localStorage.getItem('orders') || '[]');
+                
+                // Combine last order with any saved orders
+                let allOrders = [...savedOrders];
+                
+                // Add last order if it exists and is not already in the list
+                if (lastOrder && lastOrder.order_id) {
+                    const exists = allOrders.some(order => order.order_id === lastOrder.order_id);
+                    if (!exists) {
+                        allOrders.unshift(lastOrder);
+                        // Save the updated orders list
+                        localStorage.setItem('orders', JSON.stringify(allOrders));
+                    }
+                }
+                
+                return allOrders;
+            } catch (e) {
+                console.error('Error getting local orders:', e);
+                return [];
+            }
+        }
+        
+        function mergeOrdersData(apiOrders, localOrders) {
+            // Handle different API response formats
+            let normalizedApiOrders = [];
+            
+            // Normalize API data based on its structure
+            if (Array.isArray(apiOrders)) {
+                normalizedApiOrders = apiOrders;
+            } else if (apiOrders && typeof apiOrders === 'object') {
+                // Handle case where API returns an object with orders array inside
+                if (apiOrders.orders && Array.isArray(apiOrders.orders)) {
+                    normalizedApiOrders = apiOrders.orders;
+                } else if (apiOrders.data && Array.isArray(apiOrders.data)) {
+                    normalizedApiOrders = apiOrders.data;
+                } else {
+                    // Try to extract orders from object keys
+                    const possibleOrders = Object.values(apiOrders).filter(v => 
+                        v && typeof v === 'object' && (v.order_id || v.id)
+                    );
+                    if (possibleOrders.length > 0) {
+                        normalizedApiOrders = possibleOrders;
+                    }
+                }
+            }
+            
+            // Normalize API order structure to match local format
+            const standardizedApiOrders = normalizedApiOrders.map(order => {
+                // Create a standardized order object
+                return {
+                    order_id: order.order_id || order.id || `API-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+                    date: order.date || order.created_at || order.timestamp || new Date().toISOString(),
+                    status: order.status || 'completed',
+                    items: Array.isArray(order.items) ? order.items : [],
+                    shipping: order.shipping || order.shipping_info || {},
+                    // Include any other original fields
+                    ...order
+                };
+            });
+            
+            // Combine API and local orders, preferring API orders for duplicates
+            const mergedOrders = [...standardizedApiOrders];
+            
+            // Add local orders that don't exist in API data
+            localOrders.forEach(localOrder => {
+                const exists = mergedOrders.some(apiOrder => 
+                    apiOrder.order_id === localOrder.order_id ||
+                    (apiOrder.id && apiOrder.id === localOrder.order_id)
+                );
+                
+                if (!exists) {
+                    // Mark as local order
+                    mergedOrders.push({
+                        ...localOrder,
+                        source: 'local'
+                    });
+                }
+            });
+            
+            // Sort by date, newest first
+            mergedOrders.sort((a, b) => {
+                const dateA = new Date(a.date || 0);
+                const dateB = new Date(b.date || 0);
+                return dateB - dateA;
+            });
+            
+            return mergedOrders;
+        }
+        
+        function displayOrders(orders) {
+            if (!orders || orders.length === 0) {
+                ordersContainer.innerHTML = `
+                    <div class="empty-orders">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h2>No Orders Yet</h2>
+                        <p>You haven't placed any orders yet.</p>
+                        <a href="home2.html" class="button primary">Start Shopping</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            let ordersHTML = '';
+            
+            orders.forEach(order => {
+                const orderId = order.order_id || order.id || 'Unknown';
+                const orderDate = new Date(order.date || Date.now()).toLocaleDateString();
+                const status = order.status || 'completed';
+                const items = order.items || [];
+                
+                // Calculate totals
+                const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const shipping = 5.99; // Default shipping
+                const tax = subtotal * 0.16; // 16% tax
+                const total = subtotal + shipping + tax;
+                
+                let itemsHTML = '';
+                items.forEach(item => {
+                    itemsHTML += `
+                        <div class="order-item">
+                            <div class="item-name">${item.name} × ${item.quantity}</div>
+                            <div class="item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+                        </div>
+                    `;
+                });
+                
+                let statusClass = '';
+                switch(status.toLowerCase()) {
+                    case 'completed':
+                        statusClass = 'status-completed';
+                        break;
+                    case 'processing':
+                        statusClass = 'status-processing';
+                        break;
+                    case 'shipped':
+                        statusClass = 'status-shipped';
+                        break;
+                    default:
+                        statusClass = 'status-completed';
+                }
+                
+                ordersHTML += `
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <h3>Order #${orderId}</h3>
+                                <p>Placed on ${orderDate}</p>
+                            </div>
+                            <div class="order-status ${statusClass}">
+                                ${status.charAt(0).toUpperCase() + status.slice(1)}
+                            </div>
+                        </div>
+                        <div class="order-body">
+                            <div class="order-items">
+                                ${itemsHTML}
+                            </div>
+                            <div class="order-totals">
+                                <div class="order-item">
+                                    <div>Subtotal</div>
+                                    <div>$${subtotal.toFixed(2)}</div>
+                                </div>
+                                <div class="order-item">
+                                    <div>Shipping</div>
+                                    <div>$${shipping.toFixed(2)}</div>
+                                </div>
+                                <div class="order-item">
+                                    <div>Tax</div>
+                                    <div>$${tax.toFixed(2)}</div>
+                                </div>
+                                <div class="order-item">
+                                    <div><strong>Total</strong></div>
+                                    <div><strong>$${total.toFixed(2)}</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="button secondary track-order" data-order-id="${orderId}">Track Order</button>
+                            <button class="button primary view-details" data-order-id="${orderId}">View Details</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            ordersContainer.innerHTML = ordersHTML;
+            
+            // Add event listeners to the buttons
+            setupOrderButtons();
+        }
+        
+        function setupOrderButtons() {
+            // Setup View Details buttons
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', function() {
+                    const orderId = this.getAttribute('data-order-id');
+                    showOrderDetails(orderId);
+                });
+            });
+            
+            // Setup Track Order buttons
+            document.querySelectorAll('.track-order').forEach(button => {
+                button.addEventListener('click', function() {
+                    const orderId = this.getAttribute('data-order-id');
+                    showTrackingInfo(orderId);
+                });
+            });
+        }
+        
+        function showOrderDetails(orderId) {
+            console.log('Showing details for order:', orderId);
+            
+            // Find the order data
+            let orderData = null;
+            try {
+                const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+                orderData = orders.find(order => order.order_id === orderId);
+                
+                // Also check last_order
+                if (!orderData) {
+                    const lastOrder = JSON.parse(localStorage.getItem('last_order') || '{}');
+                    if (lastOrder.order_id === orderId) {
+                        orderData = lastOrder;
+                    }
+                }
+            } catch (e) {
+                console.error('Error finding order data:', e);
+            }
+            
+            if (!orderData) {
+                alert('Order details not found. Please try again later.');
+                return;
+            }
+            
+            // Create modal for order details
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.zIndex = '1000';
+            
+            // Calculate totals
+            const items = orderData.items || [];
+            const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = 5.99;
+            const tax = subtotal * 0.16;
+            const total = subtotal + shipping + tax;
+            
+            // Format date
+            const orderDate = new Date(orderData.date || Date.now()).toLocaleDateString();
+            
+            // Create items HTML
+            let itemsHTML = '';
+            items.forEach(item => {
+                itemsHTML += `
+                    <div class="order-item" style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #eee;">
+                        <div>
+                            <strong>${item.name}</strong>
+                            <div>Quantity: ${item.quantity}</div>
+                            <div>Price: $${item.price.toFixed(2)}</div>
+                        </div>
+                        <div>$${(item.price * item.quantity).toFixed(2)}</div>
+                    </div>
+                `;
+            });
+            
+            // Create shipping address HTML
+            const shipping_info = orderData.shipping || {};
+            const addressHTML = `
+                <div style="margin-top: 20px;">
+                    <h4 style="margin-bottom: 10px;">Shipping Address</h4>
+                    <p>${shipping_info.fullName || 'N/A'}</p>
+                    <p>${shipping_info.address || 'N/A'}</p>
+                    <p>${shipping_info.city || 'N/A'}, ${shipping_info.postalCode || 'N/A'}</p>
+                    <p>${shipping_info.country || 'N/A'}</p>
+                    <p>Email: ${shipping_info.email || 'N/A'}</p>
+                    <p>Phone: ${shipping_info.phone || 'N/A'}</p>
+                </div>
+            `;
+            
+            // Create modal content
+            modal.innerHTML = `
+                <div style="background-color: white; border-radius: 8px; width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2 style="margin: 0;">Order #${orderId}</h2>
+                        <button id="close-modal" style="background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <p><strong>Date:</strong> ${orderDate}</p>
+                        <p><strong>Status:</strong> <span style="display: inline-block; padding: 4px 12px; border-radius: 50px; background-color: #e6f7e6; color: #28a745;">${orderData.status || 'Completed'}</span></p>
+                    </div>
+                    
+                    <div>
+                        <h3>Items</h3>
+                        ${itemsHTML}
+                    </div>
+                    
+                    <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div>Subtotal</div>
+                            <div>$${subtotal.toFixed(2)}</div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div>Shipping</div>
+                            <div>$${shipping.toFixed(2)}</div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <div>Tax</div>
+                            <div>$${tax.toFixed(2)}</div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;">
+                            <div>Total</div>
+                            <div>$${total.toFixed(2)}</div>
+                        </div>
+                    </div>
+                    
+                    ${addressHTML}
+                    
+                    <div style="margin-top: 20px; text-align: right;">
+                        <button id="print-order" class="button secondary" style="margin-right: 10px;">Print Receipt</button>
+                        <button id="close-details" class="button primary">Close</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Add event listeners to close the modal
+            document.getElementById('close-modal').addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+            
+            document.getElementById('close-details').addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+            
+            // Add print functionality
+            document.getElementById('print-order').addEventListener('click', () => {
+                window.print();
+            });
+        }
+        
+        function showTrackingInfo(orderId) {
+            console.log('Showing tracking for order:', orderId);
+            
+            // Create modal for tracking info
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.zIndex = '1000';
+            
+            // Generate a fake tracking number based on the order ID
+            const trackingNumber = 'EP' + orderId.replace(/[^0-9]/g, '').substring(0, 8).padEnd(8, '0');
+            
+            // Create a random delivery date (3-7 days from now)
+            const deliveryDays = Math.floor(Math.random() * 5) + 3;
+            const deliveryDate = new Date();
+            deliveryDate.setDate(deliveryDate.getDate() + deliveryDays);
+            const formattedDeliveryDate = deliveryDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+            
+            // Create tracking status based on delivery date
+            let status, statusClass, statusPercentage;
+            if (deliveryDays <= 1) {
+                status = 'Out for Delivery';
+                statusClass = 'status-shipped';
+                statusPercentage = 80;
+            } else if (deliveryDays <= 3) {
+                status = 'In Transit';
+                statusClass = 'status-processing';
+                statusPercentage = 50;
+            } else {
+                status = 'Processing';
+                statusClass = 'status-processing';
+                statusPercentage = 20;
+            }
+            
+            // Create modal content
+            modal.innerHTML = `
+                <div style="background-color: white; border-radius: 8px; width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2 style="margin: 0;">Track Your Order</h2>
+                        <button id="close-tracking" style="background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <p><strong>Order #:</strong> ${orderId}</p>
+                        <p><strong>Tracking Number:</strong> ${trackingNumber}</p>
+                        <p><strong>Carrier:</strong> E-Pharma Express</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <p><strong>Status:</strong> <span class="${statusClass}" style="display: inline-block; padding: 4px 12px; border-radius: 50px;">${status}</span></p>
+                        <p><strong>Estimated Delivery:</strong> ${formattedDeliveryDate}</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="background-color: #f1f1f1; border-radius: 10px; height: 10px; margin-bottom: 10px;">
+                            <div style="background-color: #4CAF50; height: 10px; border-radius: 10px; width: ${statusPercentage}%;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Order Placed</span>
+                            <span>Processing</span>
+                            <span>Shipped</span>
+                            <span>Delivered</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h3>Tracking History</h3>
+                        <div style="border-left: 2px solid #ccc; padding-left: 20px;">
+                            <div style="margin-bottom: 15px;">
+                                <p style="margin: 0; font-weight: bold;">${new Date().toLocaleDateString()} - ${new Date().toLocaleTimeString()}</p>
+                                <p style="margin: 0;">${status}</p>
+                                <p style="margin: 0; color: #666;">Your package is ${status.toLowerCase()}</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <p style="margin: 0; font-weight: bold;">${new Date(Date.now() - 86400000).toLocaleDateString()} - ${new Date(Date.now() - 86400000).toLocaleTimeString()}</p>
+                                <p style="margin: 0;">Order Processed</p>
+                                <p style="margin: 0; color: #666;">Your order has been processed and is being prepared for shipment</p>
+                            </div>
+                            <div>
+                                <p style="margin: 0; font-weight: bold;">${new Date(Date.now() - 172800000).toLocaleDateString()} - ${new Date(Date.now() - 172800000).toLocaleTimeString()}</p>
+                                <p style="margin: 0;">Order Placed</p>
+                                <p style="margin: 0; color: #666;">Your order has been received</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px; text-align: right;">
+                        <button id="contact-support" class="button secondary" style="margin-right: 10px;">Contact Support</button>
+                        <button id="close-tracking-btn" class="button primary">Close</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Add event listeners to close the modal
+            document.getElementById('close-tracking').addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+            
+            document.getElementById('close-tracking-btn').addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+            
+            // Add contact support functionality
+            document.getElementById('contact-support').addEventListener('click', () => {
+                alert('Support team has been notified about your inquiry for order #' + orderId);
+            });
+        }
+    });
+    </script>
+</body>
+</html>

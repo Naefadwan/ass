@@ -1,0 +1,76 @@
+/* Admin Layout Styles */
+.admin-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+}
+
+.admin-logo {
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-logo a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.admin-logo h2 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.admin-nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.admin-nav li {
+  margin-bottom: 10px;
+}
+
+.admin-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.admin-nav a:hover,
+.admin-nav a.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-nav i {
+  width: 20px;
+  text-align: center;
+}
+
+.admin-content {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .admin-container {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    display: none; /* Hide sidebar on smaller screens */
+  }
+}

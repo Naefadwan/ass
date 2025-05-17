@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - E-Pharma</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .faq-section {
+            margin-bottom: 30px;
+        }
+        
+        .faq-section h2 {
+            color: #2c5282;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #4299e1;
+        }
+        
+        .faq-question.active:after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            display: none;
+            padding-top: 10px;
+        }
+        
+        .faq-answer.show {
+            display: block;
+        }
+        
+        .category-nav {
+            background-color: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .category-nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 10px;
+        }
+        
+        .category-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #4a5568;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .category-nav li a:hover,
+        .category-nav li a.active {
+            background-color: #4299e1;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .category-nav ul {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">E-Pharma</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="consultation.html">Consultation</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        
+        <div class="category-nav">
+            <ul>
+                <li><a href="#account" class="active">Account & Registration</a></li>
+                <li><a href="#ordering">Ordering</a></li>
+                <li><a href="#prescriptions">Prescriptions</a></li>
+                <li><a href="#shipping">Shipping & Delivery</a></li>
+                <li><a href="#returns">Returns & Refunds</a></li>
+                <li><a href="#payment">Payment</a></li>
+                <li><a href="#consultation">Consultations</a></li>
+            </ul>
+        </div>
+        
+        <div id="account" class="faq-section">
+            <h2>Account & Registration</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I create an E-Pharma account?</div>
+                <div class="faq-answer">
+                    <p>Creating an account with E-Pharma is simple. Click on the "Register" button in the top right corner of our website, fill in your personal information, create a secure password, and agree to our Terms of Service. Once you've verified your email address, your account will be active and ready to use.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is my personal and medical information secure?</div>
+                <div class="faq-answer">
+                    <p>Yes, we take data security very seriously. All personal and medical information is encrypted and stored securely in compliance with HIPAA regulations. We use industry-standard security measures to protect your data and never share your information with third parties without your explicit consent.</p>
+                    <p>For more information, please review our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How can I reset my password?</div>
+                <div class="faq-answer">
+                    <p>If you've forgotten your password, click on the "Login" button and then select "Forgot Password." Enter the email address associated with your account, and we'll send you a link to reset your password. For security reasons, this link will expire after 24 hours.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I have multiple profiles under one account?</div>
+                <div class="faq-answer">
+                    <p>Yes, you can manage medications for your family members or dependents under a single account. After logging in, go to "My Account" > "Manage Profiles" to add family members. Note that you must be legally authorized to manage prescriptions for any individuals you add.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="ordering" class="faq-section">
+            <h2>Ordering</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I place an order?</div>
+                <div class="faq-answer">
+                    <p>To place an order, browse our products and add items to your cart. For prescription medications, you'll need to upload a valid prescription or transfer an existing prescription from another pharmacy. Once you've reviewed your cart, proceed to checkout, select your shipping and payment methods, and confirm your order.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I modify or cancel my order?</div>
+                <div class="faq-answer">
+                    <p>You can modify or cancel your order within 30 minutes of placing it, provided it hasn't been processed yet. To do so, go to "My Account" > "Order History" and select the order you wish to modify or cancel. If your order has already been processed, please contact our customer service for assistance.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What if an item is out of stock?</div>
+                <div class="faq-answer">
+                    <p>If an item in your order is out of stock, we'll notify you immediately and provide options: wait for the item to be restocked, substitute with a similar product, or receive a refund for that item. For prescription medications, our pharmacists will contact you to discuss alternatives that may be available with your doctor's approval.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you offer automatic refills?</div>
+                <div class="faq-answer">
+                    <p>Yes, we offer an automatic refill program for maintenance medications. You can enroll in this program during checkout or by accessing your prescription details in your account. You'll receive a notification before each refill is processed, giving you the option to skip or reschedule if needed.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="prescriptions" class="faq-section">
+            <h2>Prescriptions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I upload my prescription?</div>
+                <div class="faq-answer">
+                    <p>You can upload your prescription during the checkout process or in advance through your account. We accept clear photos or scans of your prescription. Simply go to "My Account" > "My Prescriptions" > "Upload New Prescription" and follow the instructions. Ensure all details on the prescription are clearly visible.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I transfer my prescription from another pharmacy?</div>
+                <div class="faq-answer">
+                    <p>Yes, we can transfer your existing prescription from another pharmacy. During checkout or through your account, select "Transfer Prescription" and provide your current pharmacy information and prescription details. Our pharmacy team will handle the transfer process for you.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do you verify prescriptions?</div>
+                <div class="faq-answer">
+                    <p>Our licensed pharmacists verify all prescriptions for authenticity and appropriateness. This may include contacting your healthcare provider to confirm details. We also check for potential drug interactions with your current medications. This verification process typically takes 1-2 business days.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long are prescriptions valid?</div>
+                <div class="faq-answer">
+                    <p>Prescription validity varies by medication type and local regulations. Generally, prescriptions for non-controlled substances are valid for one year from the date written, while controlled substances have stricter timeframes. Our system will notify you when your prescription is nearing expiration so you can contact your healthcare provider for a renewal.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="shipping" class="faq-section">
+            <h2>Shipping & Delivery</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What shipping methods do you offer?</div>
+                <div class="faq-answer">
+                    <p>We offer standard shipping (3-5 business days), expedited shipping (2-3 business days), and express shipping (1-2 business days). Temperature-sensitive medications are shipped with appropriate cooling packs in insulated packaging. Shipping options and fees are displayed during checkout based on your location and order contents.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How can I track my order?</div>
+                <div class="faq-answer">
+                    <p>Once your order ships, you'll receive a tracking number via email. You can also track your order by logging into your account and viewing your order history. Our tracking system provides real-time updates on your package's location and estimated delivery date.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you ship internationally?</div>
+                <div class="faq-answer">
+                    <p>Currently, we only ship within the United States and its territories due to varying international regulations regarding pharmaceutical products. We're working to expand our services to select international locations in the future.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What if my medication requires refrigeration?</div>
+                <div class="faq-answer">
+                    <p>Medications requiring refrigeration are shipped in special temperature-controlled packaging with cooling elements designed to maintain the proper temperature for up to 72 hours. We monitor weather conditions and may adjust shipping schedules to avoid extreme temperatures that could affect medication integrity.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="returns" class="faq-section">
+            <h2>Returns & Refunds</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is your return policy?</div>
+                <div class="faq-answer">
+                    <p>For over-the-counter products, we accept returns of unopened items within 30 days of delivery. Prescription medications cannot be returned due to safety regulations, except in cases of shipping damage, dispensing errors, or quality issues. Please refer to our <a href="shipping-returns.html">Shipping & Returns</a> page for complete details.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I request a refund?</div>
+                <div class="faq-answer">
+                    <p>To request a refund, contact our customer service within 30 days of delivery. For eligible returns, refunds will be issued to your original payment method within 5-7 business days after we receive and process your return. For prescription medication issues, our pharmacist will review your case before a refund is processed.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What if I receive damaged or incorrect items?</div>
+                <div class="faq-answer">
+                    <p>If you receive damaged or incorrect items, please contact us immediately. Take photos of the damaged items or packaging and email them to support@e-pharma.com. We'll arrange for a replacement to be shipped to you as soon as possible at no additional cost.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="payment" class="faq-section">
+            <h2>Payment</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What payment methods do you accept?</div>
+                <div class="faq-answer">
+                    <p>We accept major credit cards (Visa, MasterCard, American Express, Discover), PayPal, and HSA/FSA cards for eligible items. For some insurance plans, we also offer the option to pay only your copay amount at checkout after verifying your coverage.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is my payment information secure?</div>
+                <div class="faq-answer">
+                    <p>Yes, we use industry-standard encryption and security protocols to protect your payment information. We are PCI-DSS compliant and do not store complete credit card information on our servers. Our payment processing is handled through secure, certified payment gateways.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you accept insurance?</div>
+                <div class="faq-answer">
+                    <p>Yes, we accept most major insurance plans. During checkout, you can enter your insurance information, and we'll verify your coverage. For some medications, we can provide real-time benefit checks to show your expected copay. If we're unable to process your insurance, we'll contact you before fulfilling your order.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How can I use my HSA or FSA account?</div>
+                <div class="faq-answer">
+                    <p>You can use your HSA or FSA card directly at checkout for eligible items. Our system automatically identifies which items in your cart are eligible for HSA/FSA payment. If you need an itemized receipt for reimbursement, you can download one from your order history in your account dashboard.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="consultation" class="faq-section">
+            <h2>Consultations</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I schedule a consultation with a pharmacist?</div>
+                <div class="faq-answer">
+                    <p>You can schedule a consultation with a licensed pharmacist through your account dashboard or by clicking on the "Consultation" link in the navigation menu. Select a convenient date and time, specify the topics you'd like to discuss, and choose either a video or phone consultation format.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What can be discussed during a consultation?</div>
+                <div class="faq-answer">
+                    <p>During a consultation, you can discuss medication usage, potential side effects, drug interactions, proper dosing, and general medication management. Our pharmacists can also provide guidance on over-the-counter products and help you understand your prescription regimen better. However, they cannot diagnose conditions or prescribe new medications.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Are consultations confidential?</div>
+                <div class="faq-answer">
+                    <p>Yes, all consultations are completely confidential and conducted in compliance with HIPAA regulations. Your consultation information is stored securely in our system and is only accessible to healthcare professionals directly involved in your care.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is there a fee for consultations?</div>
+                <div class="faq-answer">
+                    <p>Basic medication consultations are provided free of charge to our customers. Specialized or extended consultations may have a fee, which will be clearly disclosed before scheduling. Some insurance plans may cover consultation fees—check with your provider for details.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+                <h3>E-Pharma</h3>
+                <p>Your trusted online pharmacy</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="consultation.html">Consultation</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="ToS.html">Terms of Service</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="Compliance.html">Compliance</a></li>
+                    <li><a href="Accessibility.html">Accessibility</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="help-center.html">Help Center</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="shipping-returns.html">Shipping & Returns</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 E-Pharma. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        // Toggle FAQ answers
+        document.addEventListener('DOMContentLoaded', function() {
+            const questions = document.querySelectorAll('.faq-question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const answer = this.nextElementSibling;
+                    answer.classList.toggle('show');
+                });
+            });
+            
+            // Smooth scroll to sections
+            const categoryLinks = document.querySelectorAll('.category-nav a');
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    categoryLinks.forEach(l => l.classList.remove('active'));
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

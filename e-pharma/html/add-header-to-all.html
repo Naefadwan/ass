@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Header To All Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+        .info {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .file-list {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .file-list div {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Header To All Pages</h1>
+        
+        <div class="info">
+            <p>This tool will help you add the necessary header and authentication scripts to all HTML pages in your E-Pharma project.</p>
+            <p>The following scripts will be added to each page:</p>
+            <ul>
+                <li><code>header-fix.js</code> - Ensures consistent login state across pages</li>
+                <li><code>user-auth-final.js</code> - Provides user authentication status</li>
+            </ul>
+        </div>
+        
+        <div id="app">
+            <p>Loading file list...</p>
+        </div>
+    </div>
+
+    <script src="../JS/add-header-to-all.js"></script>
+</body>
+</html>
